@@ -15,8 +15,9 @@
 
             if (count == 666)
                 CounterBtn.Text = $"Clicked {count} time";
+                
             else
-                CounterBtn.Text = $"Clicked {count} times";
+                CounterBtn.Text = $"Clicked {count} day";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
