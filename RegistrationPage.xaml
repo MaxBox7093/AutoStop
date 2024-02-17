@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoStop.RegistrationPage"
+             Title="RegistrationPage">
+    <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Center">
+        <Label 
+            FontFamily="Helvetica"
+            FontAttributes="Bold"
+            FontSize="28"
+            HorizontalOptions="Center">
+            Зарегистрироваться
+        </Label>
+        <Entry
+            x:Name="EntryLoginReg"
+            Placeholder = "Номер телефона" FontFamily="Helvetica"
+            FontSize="22" MaxLength ="20"/>
+        <Entry
+        x:Name="EntryPasswordReg"
+        Placeholder = "Пароль" FontFamily="Helvetica"
+        FontSize="22" MaxLength ="20"/>
+        <Button
+        x:Name="BtnLoginReg"
+        Text="Войти"
+        SemanticProperties.Hint="Proceed to Login page"
+        Clicked="BtnLoginRegClick"
+        HorizontalOptions="Fill"
+        FontFamily="Helvetica"
+        FontSize="22"/>
+        <Button
+        x:Name="BtnSignUpReg"
+        Text="Зарегистрироваться"
+        SemanticProperties.Hint="Register"
+        Clicked="BtnSignUpRegClick"
+        HorizontalOptions="Fill"
+        FontFamily="Helvetica"
+        FontSize="22"/>
+
+    </VerticalStackLayout>
+</ContentPage>

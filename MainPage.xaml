@@ -32,10 +32,10 @@
                 FontFamily="Helvetica"
                 FontSize="22"/>
             <Button
-                x:Name="BtnSingUp"
+                x:Name="BtnSignUp"
                 Text="Зарегистрироваться"
                 SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="BtnSingUpClick"
+                Clicked="BtnSignUpClick"
                 HorizontalOptions="Fill"
                 FontFamily="Helvetica"
                 FontSize="22"/>
