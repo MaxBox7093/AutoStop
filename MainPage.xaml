@@ -8,32 +8,37 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
+                Source="logo.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+            <Entry
+                x:Name="EntryLogin"
+                Placeholder = "Номер телефона" FontFamily="Helvetica"
+                FontSize="22" MaxLength ="20"
+                />
+            <Entry
+                x:Name="EntryPassword"
+                Placeholder = "Пароль" FontFamily="Helvetica"
+                FontSize="22" MaxLength ="20"
+                />
             <Button
-                x:Name="CounterBtn"
-                Text="Click me"
+                x:Name="BtnLogin"
+                Text="Войти"
                 SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                Clicked="BtnLoginClick"
+                HorizontalOptions="Fill"
+                FontFamily="Helvetica"
+                FontSize="22"/>
+            <Button
+                x:Name="BtnSingUp"
+                Text="Зарегистрироваться"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="BtnSingUpClick"
+                HorizontalOptions="Fill"
+                FontFamily="Helvetica"
+                FontSize="22"/>
 
         </VerticalStackLayout>
     </ScrollView>
