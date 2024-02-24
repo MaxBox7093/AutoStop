@@ -33,8 +33,8 @@
             x:Name="CheckPasswordReg"
             Placeholder = "Пароль еще раз" FontFamily="Helvetica"
             FontSize="22" MaxLength ="20"/>
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
-            <CheckBox x:Name="CheckDriver" Margin="-8"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+            <CheckBox x:Name="CheckDriver" Margin="-8" Scale="1.5"/>
             <Label FontSize="22" FontFamily="Helvetica" Text="Я являюсь водителем"/>
         </HorizontalStackLayout>
         <Button
