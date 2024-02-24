@@ -2,42 +2,49 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AutoStop.RegistrationPage"
-             Title="RegistrationPage">
+             Title = "Регистрация">
     <VerticalStackLayout
         Spacing="25"
         Padding="30,0"
         VerticalOptions="Center">
-        <Label 
-            FontFamily="Helvetica"
-            FontAttributes="Bold"
-            FontSize="28"
-            HorizontalOptions="Center">
-            Зарегистрироваться
-        </Label>
+        <Entry
+            x:Name="UserName"
+            Placeholder = "Имя" FontFamily="Helvetica"
+            FontSize="22" MaxLength ="20"/>
+        <Entry
+            x:Name="UserSurename"
+            Placeholder = "Фамилия" FontFamily="Helvetica"
+            FontSize="22" MaxLength ="20"/>
+        <Frame Background="#00000000" BorderColor="#FFFFFF">
+            <DatePicker 
+                x:Name="UserBirthday"
+                FontFamily="Helvetica"
+                FontSize="22" AutomationProperties.Name=""/>
+        </Frame>
         <Entry
             x:Name="EntryLoginReg"
             Placeholder = "Номер телефона" FontFamily="Helvetica"
             FontSize="22" MaxLength ="20"/>
         <Entry
-        x:Name="EntryPasswordReg"
-        Placeholder = "Пароль" FontFamily="Helvetica"
-        FontSize="22" MaxLength ="20"/>
+            x:Name="EntryPasswordReg"
+            Placeholder = "Пароль" FontFamily="Helvetica"
+            FontSize="22" MaxLength ="20"/>
+        <Entry
+            x:Name="CheckPasswordReg"
+            Placeholder = "Пароль еще раз" FontFamily="Helvetica"
+            FontSize="22" MaxLength ="20"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
+            <CheckBox x:Name="CheckDriver" Margin="-8"/>
+            <Label FontSize="22" FontFamily="Helvetica" Text="Я являюсь водителем"/>
+        </HorizontalStackLayout>
         <Button
-        x:Name="BtnLoginReg"
-        Text="Войти"
-        SemanticProperties.Hint="Proceed to Login page"
-        Clicked="BtnLoginRegClick"
-        HorizontalOptions="Fill"
-        FontFamily="Helvetica"
-        FontSize="22"/>
-        <Button
-        x:Name="BtnSignUpReg"
-        Text="Зарегистрироваться"
-        SemanticProperties.Hint="Register"
-        Clicked="BtnSignUpRegClick"
-        HorizontalOptions="Fill"
-        FontFamily="Helvetica"
-        FontSize="22"/>
+            x:Name="BtnSignUpReg"
+            Text="Зарегистрироваться"
+            SemanticProperties.Hint="Register"
+            Clicked="BtnSignUpRegClick"
+            HorizontalOptions="Fill"
+            FontFamily="Helvetica"
+            FontSize="22"/>
 
     </VerticalStackLayout>
 </ContentPage>
