@@ -2,49 +2,77 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AutoStop.RegistrationPage"
-             Title = "Регистрация">
-    <VerticalStackLayout
-        Spacing="25"
-        Padding="30,0"
-        VerticalOptions="Center">
-        <Entry
-            x:Name="UserName"
-            Placeholder = "Имя" FontFamily="Helvetica"
-            FontSize="22" MaxLength ="20"/>
-        <Entry
-            x:Name="UserSurename"
-            Placeholder = "Фамилия" FontFamily="Helvetica"
-            FontSize="22" MaxLength ="20"/>
-        <Frame Background="#00000000" BorderColor="#FFFFFF">
-            <DatePicker 
-                x:Name="UserBirthday"
-                FontFamily="Helvetica"
-                FontSize="22" AutomationProperties.Name=""/>
-        </Frame>
-        <Entry
-            x:Name="EntryLoginReg"
-            Placeholder = "Номер телефона" FontFamily="Helvetica"
-            FontSize="22" MaxLength ="20"/>
-        <Entry
-            x:Name="EntryPasswordReg"
-            Placeholder = "Пароль" FontFamily="Helvetica"
-            FontSize="22" MaxLength ="20"/>
-        <Entry
-            x:Name="CheckPasswordReg"
-            Placeholder = "Пароль еще раз" FontFamily="Helvetica"
-            FontSize="22" MaxLength ="20"/>
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
-            <CheckBox x:Name="CheckDriver" Margin="-8" Scale="1.5"/>
-            <Label FontSize="22" FontFamily="Helvetica" Text="Я являюсь водителем"/>
-        </HorizontalStackLayout>
-        <Button
-            x:Name="BtnSignUpReg"
-            Text="Зарегистрироваться"
-            SemanticProperties.Hint="Register"
-            Clicked="BtnSignUpRegClick"
-            HorizontalOptions="Fill"
-            FontFamily="Helvetica"
-            FontSize="22"/>
+             Title="Регистрация"
+             BackgroundColor="#F0F0F0">
 
-    </VerticalStackLayout>
+    <ContentPage.Resources>
+        <Style x:Key="EntryStyle" TargetType="Entry">
+            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="PlaceholderColor" Value="#888"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="BackgroundColor" Value="#2196F3"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="15"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Entry
+                x:Name="UserName"
+                Placeholder="Имя"
+                Style="{StaticResource EntryStyle}" />
+            <Entry
+                x:Name="UserSurename"
+                Placeholder="Фамилия"
+                Style="{StaticResource EntryStyle}" />
+            <Frame Background="#00000000" BorderColor="#FFFFFF" Padding="0" Margin="0,5,0,5">
+                <DatePicker 
+                    x:Name="UserBirthday"
+                    FontFamily="Helvetica"
+                    FontSize="22"
+                    TextColor="Black" />
+            </Frame>
+            <Entry
+                x:Name="EntryLoginReg"
+                Placeholder="Номер телефона"
+                Style="{StaticResource EntryStyle}" />
+            <Entry
+                x:Name="EntryPasswordReg"
+                Placeholder="Пароль"
+                IsPassword="True"
+                Style="{StaticResource EntryStyle}" />
+            <Entry
+                x:Name="CheckPasswordReg"
+                Placeholder="Пароль еще раз"
+                IsPassword="True"
+                Style="{StaticResource EntryStyle}" />
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <CheckBox x:Name="CheckDriver" Margin="-8" Scale="1.5"/>
+                <Label Text="Я являюсь водителем" Style="{StaticResource LabelStyle}"/>
+            </HorizontalStackLayout>
+            <Button
+                x:Name="BtnSignUpReg"
+                Text="Зарегистрироваться"
+                Style="{StaticResource ButtonStyle}"
+                Clicked="BtnSignUpRegClick" />
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>
