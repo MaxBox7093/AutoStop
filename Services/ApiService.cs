@@ -14,7 +14,7 @@ namespace AutoStop.Services
             string baseAddress;
 
             #if ANDROID
-            baseAddress = "https://10.0.2.2:7082/api/"; // Специальный IP-адрес для доступа к localhost с эмулятора Android через HTTPS
+            baseAddress = "https://192.168.0.105:5000/api/"; // Специальный IP-адрес для доступа к localhost с эмулятора Android через HTTPS
             #else
             baseAddress = "https://localhost:7082/api/"; // Локальный адрес для Windows эмулятора через HTTPS
             #endif
