@@ -12,7 +12,6 @@ namespace AutoStop
         public MainPage()
         {
             InitializeComponent();
-
             _apiService = new ApiService();
         }
 
@@ -42,7 +41,7 @@ namespace AutoStop
 
         private void BtnSignUpClick(object sender, EventArgs e)
         {
-            // Логика для кнопки регистрации
+            Navigation.PushAsync(new RegistrationPage());
         }
     }
 }
