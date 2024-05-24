@@ -7,7 +7,7 @@ namespace AutoStop.Services
 {
     class ApiService
     {
-        private readonly HttpClient _httpClient;
+        protected readonly HttpClient _httpClient;
 
         public ApiService()
         {
@@ -23,12 +23,6 @@ namespace AutoStop.Services
             {
                 BaseAddress = new Uri(baseAddress)
             };
-        }
-
-
-        public async Task<int> GetUserIdAsync()
-        {
-            return await _httpClient.GetFromJsonAsync<int>("User");
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using AutoStop.Services;
+﻿using AutoStop.APIServices;
+using AutoStop.Models;
+using AutoStop.Services;
 using Microsoft.Maui.Controls;
 using System;
 using System.Threading.Tasks;
@@ -7,36 +9,29 @@ namespace AutoStop
 {
     public partial class MainPage : ContentPage
     {
-        private readonly ApiService _apiService;
-
         public MainPage()
         {
             InitializeComponent();
-            _apiService = new ApiService();
         }
 
-        protected override async void OnAppearing()
+        private async void BtnLoginClick(object sender, EventArgs e)
         {
-            base.OnAppearing();
-            await GetUserId();
-        }
-
-        private async Task GetUserId()
-        {
-            try
+            var login = new Login
             {
-                int userId = await _apiService.GetUserIdAsync();
-                EntryLogin.Text = $"User ID: {userId}";
-            }
-            catch (Exception ex)
-            {
-                EntryLogin.Text = $"Error: {ex.Message}";
-            }
-        }
+                Phone = EntryLogin.Text,
+                Password = EntryPassword.Text
+            };
+            LoginAPI loginAPI = new LoginAPI();
+            User user = await loginAPI.LoginAsync(login);
 
-        private void BtnLoginClick(object sender, EventArgs e)
-        {
-            // Логика для кнопки входа
+            if (user != null)
+            {
+                await DisplayAlert("Уведомление", $"Добро пожаловать, {user.Name} {user.LastName}", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Ошибка", "Логин или пароль неверны", "OK");
+            }
         }
 
         private void BtnSignUpClick(object sender, EventArgs e)
