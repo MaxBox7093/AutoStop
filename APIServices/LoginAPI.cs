@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace AutoStop.APIServices
 {
@@ -15,11 +17,14 @@ namespace AutoStop.APIServices
         {
             try
             {
-                // Формируем строку запроса с параметрами
-                string requestUri = $"login?Phone={Uri.EscapeDataString(login.Phone)}&Password={Uri.EscapeDataString(login.Password)}";
+                // Сериализуем модель Login в JSON
+                string json = JsonSerializer.Serialize(login);
 
-                // Отправляем GET-запрос
-                HttpResponseMessage response = await _httpClient.GetAsync(requestUri);
+                // Создаем HttpContent для POST-запроса
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                // Отправляем POST-запрос
+                HttpResponseMessage response = await _httpClient.PostAsync("login", content);
 
                 if (response.IsSuccessStatusCode)
                 {
