@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoStop.Footer"
+             BackgroundColor="Orange"
+             HeightRequest="50">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ImageButton x:Name="SearchButton" Source="search.png" Grid.Column="0" Clicked="OnSearchButtonClicked"/>
+        <ImageButton x:Name="AddButton" Source="add.png" Grid.Column="1" Clicked="OnAddButtonClicked"/>
+        <ImageButton x:Name="HistoryButton" Source="history.png" Grid.Column="2" Clicked="OnHistoryButtonClicked"/>
+        <ImageButton x:Name="ChatsButton" Source="chats.png" Grid.Column="3" Clicked="OnChatsButtonClicked"/>
+        <ImageButton x:Name="ProfileButton" Source="profile.png" Grid.Column="4" Clicked="OnProfileButtonClicked"/>
+    </Grid>
+</ContentView>

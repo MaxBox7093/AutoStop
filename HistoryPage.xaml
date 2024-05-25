@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AutoStop"
+             x:Class="AutoStop.HistoryPage"
+             Title="HistoryPage"
+             BackgroundColor="#F0F0F0">
+    <Grid RowDefinitions="*, Auto">
+        <!-- Основной контент -->
+        <ScrollView Grid.Row="0">
+
+        </ScrollView>
+        <!-- Нижнее навигационное меню -->
+        <local:Footer Grid.Row="1" />
+    </Grid>
+</ContentPage>

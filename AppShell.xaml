@@ -10,4 +10,9 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <ShellContent Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" />
+    <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}" />
+    <ShellContent Route="AddPage" ContentTemplate="{DataTemplate local:AddPage}" />
+    <ShellContent Route="HistoryPage" ContentTemplate="{DataTemplate local:HistoryPage}" />
+    <ShellContent Route="ChatsPage" ContentTemplate="{DataTemplate local:ChatsPage}" />
 </Shell>
