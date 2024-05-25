@@ -6,4 +6,9 @@ public partial class RegistrationDriverPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void OnAddDocButtonClicked(object sender, EventArgs e)
+    {
+        
+    }
 }
