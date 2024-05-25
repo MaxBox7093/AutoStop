@@ -22,6 +22,8 @@ namespace AutoStop
                 Password = EntryPassword.Text
             };
             LoginAPI loginAPI = new LoginAPI();
+            
+            //Get и получение User
             User user = await loginAPI.LoginAsync(login);
 
             if (user != null)
@@ -32,6 +34,8 @@ namespace AutoStop
             {
                 await DisplayAlert("Ошибка", "Логин или пароль неверны", "OK");
             }
+            //Переход на профиль(Потом добавить в if!!!!)
+            Navigation.PushAsync(new ProfilePage());
         }
 
         private void BtnSignUpClick(object sender, EventArgs e)
