@@ -26,6 +26,10 @@ namespace AutoStop
             };
 
             RegisterUserAsync(registration);
+            if (CheckDriver.IsChecked) 
+            {
+                Navigation.PushAsync(new RegistrationDriverPage());
+            }
         }
 
         private async void RegisterUserAsync(Registration registration)
