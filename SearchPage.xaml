@@ -6,11 +6,52 @@
              Title="SearchPage"
              BackgroundColor="#F0F0F0">
     <Grid RowDefinitions="*, Auto">
+        <!-- Логотип и название -->
+        <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Center" Padding="10" BackgroundColor="White">
+            <Image Source="logo1.png" WidthRequest="50" HeightRequest="50"/>
+            <Label Text="AUTOSTOP" FontSize="24" TextColor="Orange" VerticalOptions="Center"/>
+        </StackLayout>
         <!-- Основной контент -->
-        <ScrollView Grid.Row="0">
-            
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+            <!-- Location Inputs -->
+                <Label Text="Откуда" FontAttributes="Bold"/>
+                <Entry Placeholder="Введите место отправления"/>
+
+                <Label Text="Куда" FontAttributes="Bold"/>
+                <Entry Placeholder="Введите пункт назначения"/>
+
+                <!-- Date and Time Picker -->
+                <Label Text="Дата и время поездки" FontAttributes="Bold"/>
+                <DatePicker Date="{Binding Date}" Format="dd MMMM yyyy"/>
+                <TimePicker Time="{Binding Time}"/>
+
+                <!-- Number of Passengers -->
+                <Label Text="Кол-во попутчиков" FontAttributes="Bold"/>
+                <Stepper Value="{Binding PassengerCount}" Minimum="1" Maximum="10"/>
+
+                <!-- Search Button -->
+                <Button Text="Найти" BackgroundColor="Orange" Command="{Binding SearchCommand}"/>
+
+
+            <!-- Search Results List -->
+            <CollectionView ItemsSource="{Binding SearchResults}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding FullName}" Grid.Column="0" FontAttributes="Bold"/>
+                            <Label Text="{Binding PassengerCount}" Grid.Column="1" HorizontalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            </StackLayout>
         </ScrollView>
         <!-- Нижнее навигационное меню -->
-        <local:Footer Grid.Row="1" />
+        <local:Footer Grid.Row="2" />
     </Grid>
 </ContentPage>

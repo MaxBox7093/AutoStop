@@ -5,12 +5,47 @@
              x:Class="AutoStop.AddPage"
              Title="AddPage"
              BackgroundColor="#F0F0F0">
+    
     <Grid RowDefinitions="*, Auto">
-        <!-- Основной контент -->
-        <ScrollView Grid.Row="0">
+        <!-- Логотип и название -->
+        <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Center" Padding="10" BackgroundColor="White">
+            <Image Source="logo1.png" WidthRequest="50" HeightRequest="50"/>
+            <Label Text="AUTOSTOP" FontSize="24" TextColor="Orange" VerticalOptions="Center"/>
+        </StackLayout>
+        <!-- Form for adding a ride -->
+        <StackLayout Grid.Row="1">
+            <!-- Location Picker -->
+            <Label Text="Откуда" FontAttributes="Bold"/>
+            <Entry Placeholder="Выберите место отправления"/>
 
-        </ScrollView>
+            <Label Text="Куда" FontAttributes="Bold"/>
+            <Entry Placeholder="Выберите пункт назначения"/>
+
+            <!-- Date and Time Picker -->
+            <Label Text="Дата и время поездки" FontAttributes="Bold"/>
+            <DatePicker Date="{Binding Date}" Format="dd MMMM yyyy"/>
+            <TimePicker Time="{Binding Time}"/>
+
+            <!-- Number of Passengers -->
+            <Label Text="Кол-во попутчиков" FontAttributes="Bold"/>
+            <Stepper Value="{Binding PassengerCount}" Minimum="1" Maximum="10"/>
+
+            <!-- Car Selection -->
+            <Label Text="Выбор автомобиля" FontAttributes="Bold"/>
+            <Picker Title="Выберите автомобиль" ItemsSource="{Binding Cars}"/>
+
+            <!-- Contact Number -->
+            <Label Text="Контактный номер" FontAttributes="Bold"/>
+            <Entry Keyboard="Telephone" Placeholder="Введите ваш номер телефона"/>
+
+            <!-- Comments -->
+            <Label Text="Комментарии" FontAttributes="Bold"/>
+            <Editor Placeholder="Добавьте комментарий..." HeightRequest="100"/>
+
+            <!-- Submit Button -->
+            <Button Text="Создать" Command="{Binding CreateRideCommand}"/>
+        </StackLayout>
         <!-- Нижнее навигационное меню -->
-        <local:Footer Grid.Row="1" />
+        <local:Footer Grid.Row="2" />
     </Grid>
 </ContentPage>
