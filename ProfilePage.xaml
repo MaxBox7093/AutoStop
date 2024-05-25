@@ -13,13 +13,13 @@
         </StackLayout>
 
         <!-- Профиль пользователя -->
-        <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="10">
+        <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="10" BackgroundColor="White" >
             <StackLayout HorizontalOptions="Center">
-                <Image Source="logo1.png" WidthRequest="100" HeightRequest="100"/>
+                <Image Source="usericon.png" WidthRequest="100" HeightRequest="100"/>
                 <Label Text="Имя Фамилия" FontSize="18" HorizontalOptions="Center"/>
                 <Label Text="19.02.2004" FontSize="14" HorizontalOptions="Center"/>
                 <Label Text="+7(999)999-99-99" FontSize="14" HorizontalOptions="Center"/>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="10">
                     <Button Text="Сменить фото" BackgroundColor="Orange" TextColor="White"/>
                     <Button Text="Редактировать профиль" BackgroundColor="Orange" TextColor="White"/>
                     <Button Text="Добавить авто" BackgroundColor="Orange" TextColor="White"/>
@@ -29,16 +29,18 @@
 
         <!-- Секция отзывов -->
         <StackLayout Padding="10">
-            <Label Text="Отзывы" FontSize="18" HorizontalOptions="Start"/>
+            <Label Text="Отзывы" FontSize="18" HorizontalOptions="Start" TextColor="Black"/>
             <ScrollView>
                 <StackLayout>
                     <!-- Пример одного отзыва -->
-                    <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5">
+                    <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White" >
                         <StackLayout Orientation="Horizontal">
-                            <Image Source="profile.png" WidthRequest="50" HeightRequest="50"/>
-                            <StackLayout>
+                            <Image Source="usericon.png" WidthRequest="50" HeightRequest="50"/>
+                            <StackLayout >
                                 <Label Text="Имя Фамилия" FontSize="14"/>
-                                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." FontSize="12"/>
+                                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." 
+                                       FontSize="12"
+                                       LineBreakMode="WordWrap"/>
                             </StackLayout>
                         </StackLayout>
                     </Frame>
@@ -56,11 +58,11 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <ImageButton Source="logo1.png" Grid.Column="0" />
-            <ImageButton Source="logo1.png" Grid.Column="1" />
-            <ImageButton Source="logo1.png" Grid.Column="2" />
-            <ImageButton Source="logo1.png" Grid.Column="3" />
-            <ImageButton Source="logo1.png" Grid.Column="4" />
+            <ImageButton Source="search.png" Grid.Column="0" />
+            <ImageButton Source="add.png" Grid.Column="1" />
+            <ImageButton Source="history.png" Grid.Column="2" />
+            <ImageButton Source="chats.png" Grid.Column="3" />
+            <ImageButton Source="profile.png" Grid.Column="4" />
         </Grid>
     </StackLayout>
 </ContentPage>
