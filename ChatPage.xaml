@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AutoStop"
+             x:Class="AutoStop.ChatPage"
+             Title="ChatPage"
+             BackgroundColor="#F0F0F0">
+
+    <Grid RowDefinitions="*, *, *, *">
+        <!-- Логотип и название -->
+        <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Center" Padding="10">
+            <Image Source="logo1.png" WidthRequest="50" HeightRequest="50"/>
+            <Label Text="AUTOSTOP" FontSize="24" TextColor="Orange" VerticalOptions="Center"/>
+        </StackLayout>
+
+        <!-- Информация о чате -->
+        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" Padding="10">
+            <Label Text="Имя" FontSize="24" TextColor="Orange" HorizontalOptions="Center"/>
+            <Label Text="+79999999999" FontSize="14" TextColor="Orange" HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <!-- Сообщения -->
+        <ScrollView Grid.Row="2" Padding="10">
+            <StackLayout>
+                 <!--Пример сообщений--> 
+                <Label Text="22:44" FontSize="12" HorizontalOptions="Center"/>
+                <Frame CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White" HorizontalOptions="Start">
+                    <Label Text="Sample text, sample text, sample text, sample text, sample text, sample text, sample text, sample text..." FontSize="14"/>
+                </Frame>
+                <Frame CornerRadius="10" Padding="10" Margin="5" BackgroundColor="AntiqueWhite" HorizontalOptions="End">
+                    <Label Text="Sample text, sample text, sample text, sample text, sample text, sample text, sample text, sample text..." FontSize="14"/>
+                </Frame>
+                 <!--Добавьте больше сообщений аналогично--> 
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Поле для ввода сообщения и кнопка отправки -->
+        <Grid Grid.Row="3" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+            <Frame BorderColor="DarkGray" CornerRadius="5" Padding="0" Grid.Column="0" MaximumHeightRequest="75">
+                <Entry Placeholder="Напишите сообщение..." Style="{StaticResource BorderedEntryStyle}"/>
+            </Frame>
+            <Button Text="➤" FontSize="Large" Grid.Column="1" BackgroundColor="Orange" TextColor="White" MaximumHeightRequest="75"/>
+        </Grid>
+    </Grid>
+</ContentPage>

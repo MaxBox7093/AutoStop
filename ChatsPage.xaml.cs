@@ -1,9 +1,17 @@
-namespace AutoStop;
+using Microsoft.Maui.Controls;
 
-public partial class ChatsPage : ContentPage
+namespace AutoStop
 {
-	public ChatsPage()
-	{
-        InitializeComponent();
-	}
+    public partial class ChatsPage : ContentPage
+    {
+        public ChatsPage()
+        {
+            InitializeComponent();
+        }
+
+        private async void OnChatTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ChatPage());
+        }
+    }
 }
