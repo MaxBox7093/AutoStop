@@ -4,7 +4,7 @@
              x:Class="AutoStop.HistoryPage"
              Title="История поездок">
 
-    <Grid RowDefinitions="*, *, *">
+    <Grid RowDefinitions="Auto, *, Auto">
         <!-- Логотип и название -->
         <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Center" Padding="10" BackgroundColor="White">
             <Image Source="logo1.png" WidthRequest="50" HeightRequest="50"/>
