@@ -5,15 +5,16 @@
              x:Class="AutoStop.AddPage"
              Title="AddPage"
              BackgroundColor="#F0F0F0">
-    
-    <Grid RowDefinitions="*, Auto">
+
+    <Grid RowDefinitions="Auto, *, Auto">
         <!-- Логотип и название -->
         <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Center" Padding="10" BackgroundColor="White">
             <Image Source="logo1.png" WidthRequest="50" HeightRequest="50"/>
             <Label Text="AUTOSTOP" FontSize="24" TextColor="Orange" VerticalOptions="Center"/>
         </StackLayout>
         <!-- Form for adding a ride -->
-        <StackLayout Grid.Row="1">
+        <ScrollView Grid.Row="1">
+            <StackLayout>
             <!-- Location Picker -->
             <Label Text="Откуда" FontAttributes="Bold"/>
             <Entry Placeholder="Выберите место отправления"/>
@@ -43,8 +44,9 @@
             <Editor Placeholder="Добавьте комментарий..." HeightRequest="100"/>
 
             <!-- Submit Button -->
-            <Button Text="Создать" Command="{Binding CreateRideCommand}"/>
-        </StackLayout>
+                <Button Text="Создать" BackgroundColor="Orange" BorderColor="Black" BorderWidth="1" TextColor="White" Command="{Binding CreateRideCommand}"/>
+            </StackLayout>
+        </ScrollView>
         <!-- Нижнее навигационное меню -->
         <local:Footer Grid.Row="2" />
     </Grid>

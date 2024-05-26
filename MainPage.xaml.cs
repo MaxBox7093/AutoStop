@@ -24,18 +24,18 @@ namespace AutoStop
             LoginAPI loginAPI = new LoginAPI();
             
             //Get и получение User
-            User user = await loginAPI.LoginAsync(login);
+            //User user = await loginAPI.LoginAsync(login);
 
-            if (user != null)
-            {
-                await DisplayAlert("Уведомление", $"Добро пожаловать, {user.Name} {user.LastName}", "OK");
-            }
-            else
-            {
-                await DisplayAlert("Ошибка", "Логин или пароль неверны", "OK");
-            }
+            //if (user != null)
+            //{
+            //    await DisplayAlert("Уведомление", $"Добро пожаловать, {user.Name} {user.LastName}", "OK");
+            //}
+            //else
+            //{
+            //    await DisplayAlert("Ошибка", "Логин или пароль неверны", "OK");
+            //}
             //Переход на профиль(Потом добавить в if!!!!)
-            Navigation.PushAsync(new ProfilePage());
+            await Navigation.PushAsync(new ProfilePage());
         }
 
         private void BtnSignUpClick(object sender, EventArgs e)
