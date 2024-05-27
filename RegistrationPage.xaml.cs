@@ -16,6 +16,7 @@ namespace AutoStop
 
         private void BtnSignUpRegClick(object sender, EventArgs e)
         {
+            var phonenum = EntryLoginReg.Text;
             var registration = new Registration
             {
                 Name = UserName.Text,
@@ -28,7 +29,7 @@ namespace AutoStop
             RegisterUserAsync(registration);
             if (CheckDriver.IsChecked) 
             {
-                Navigation.PushAsync(new RegistrationDriverPage());
+                Navigation.PushAsync(new RegistrationDriverPage(phonenum));
             }
         }
 

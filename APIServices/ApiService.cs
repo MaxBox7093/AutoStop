@@ -13,10 +13,10 @@ namespace AutoStop.Services
         {
             string baseAddress;
 
-            #if ANDROID
-            baseAddress = "http://192.168.0.105:5083/api/";
-            #else
-            baseAddress = "http://192.168.0.105:5083/api/";
+#if ANDROID
+            baseAddress = "http://192.168.0.87:5083/api/";
+#else
+            baseAddress = "http://192.168.0.87:5083/api/";
             #endif
 
             _httpClient = new HttpClient

@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AutoStop.RegistrationDriverPage"
-             Title="Регистрация документа">
+             Title="RegistrationDriver">
     <VerticalStackLayout>
         <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
-            <Label Text="Введите номер водительского удостоверения" FontSize="18" HorizontalOptions="Center" />
-            <Entry x:Name="EntryCarPlate" Placeholder="Номер прав" FontSize="18" Margin="0,10,0,10" />
+            <Label Text="Введите дату получения водительского удостоверения" FontSize="18" HorizontalOptions="Center" />
+            <DatePicker x:Name="EntryCarPlate" Date="{Binding Date}" Format="dd MMMM yyyy" FontSize="18" Margin="0,10,0,10" />
             <Button Text="Добавить авто" BackgroundColor="Orange" TextColor="White" Clicked="OnAddDocButtonClicked" />
         </StackLayout>
     </VerticalStackLayout>

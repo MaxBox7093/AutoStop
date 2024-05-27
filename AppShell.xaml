@@ -16,4 +16,8 @@
     <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}" />
     <ShellContent Route="AddPage" ContentTemplate="{DataTemplate local:AddPage}" />
     <ShellContent Route="HistoryPage" ContentTemplate="{DataTemplate local:HistoryPage}" />
+    <ShellContent Route="RegistrationDriverPage" ContentTemplate="{DataTemplate local:RegistrationDriverPage}" />
+    <ShellContent Route="RegistrationCarPage" ContentTemplate="{DataTemplate local:RegistrationCarPage}" />
+    <ShellContent Route="CarAddPage" ContentTemplate="{DataTemplate local:CarAddPage}" />
+    <ShellContent Route="ViewAutoPage" ContentTemplate="{DataTemplate local:ViewAutoPage}" />
 </Shell>

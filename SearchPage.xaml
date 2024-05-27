@@ -21,10 +21,9 @@
                 <Label Text="Куда" FontAttributes="Bold"/>
                 <Entry Placeholder="Введите пункт назначения"/>
 
-                <!-- Date and Time Picker -->
+                <!-- Date Picker -->
                 <Label Text="Дата и время поездки" FontAttributes="Bold"/>
                 <DatePicker Date="{Binding Date}" Format="dd MMMM yyyy"/>
-                <TimePicker Time="{Binding Time}"/>
 
                 <!-- Number of Passengers -->
                 <Label Text="Кол-во попутчиков" FontAttributes="Bold"/>

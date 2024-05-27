@@ -2,11 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AutoStop.RegistrationCarPage"
-             Title="RegistrationCarPage">
+             Title="RegistrationCar">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
+            <Label Text="Введите ГосРегЗнак вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
+            <Entry x:Name="EntryGRZ" Placeholder="ГосРегЗнак" FontSize="18" Margin="0,10,0,10" />
+            <Label Text="Введите модель вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
+            <Entry x:Name="EntryCarMod" Placeholder="Модель машины" FontSize="18" Margin="0,10,0,10" />
+            <Label Text="Введите цвет вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
+            <Entry x:Name="EntryCarCol" Placeholder="Цвет машины" FontSize="18" Margin="0,10,0,10" />
+            <Button Text="Завершить регистрацию" BackgroundColor="Orange" TextColor="White" Clicked="OnAddCarButtonClicked" />
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
