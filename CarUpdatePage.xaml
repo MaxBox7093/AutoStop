@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoStop.CarUpdatePage"
+             Title="CarUpdatePage"
+             BackgroundColor="White">
+    <StackLayout Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+        <Border BackgroundColor="#F0F0F0" Stroke="Black">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <StackLayout Padding="20">
+                <Label Text="Введите ГосРегЗнак вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
+                <Entry x:Name="newGRZ" Placeholder="ГосРегЗнак" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" />
+                <Label Text="Введите модель вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
+                <Entry x:Name="newCarMod" Placeholder="Модель машины" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" />
+                <Label Text="Введите цвет вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
+                <Entry x:Name="newCarCol" Placeholder="Цвет машины" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" />
+                <Button Text="Обновить" BackgroundColor="Orange" TextColor="White" Clicked="OnUpdCarButtonClicked" />
+            </StackLayout>
+        </Border>
+    </StackLayout>
+</ContentPage>

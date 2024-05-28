@@ -1,5 +1,6 @@
 using AutoStop.APIServices;
 using AutoStop.Models;
+using AutoStop.Storages;
 using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -19,21 +20,18 @@ namespace AutoStop
         public ViewAutoPage()
         {
             InitializeComponent();
-
-            Cars = new ObservableCollection<Car>();
             _getCarAPI = new GetCarAPI();
+            Cars = new ObservableCollection<Car>();
             _deleteCarAPI = new DeleteCarAPI();
             EditCarCommand = new Command<Car>(OnEditCar);
             DeleteCarCommand = new Command<Car>(OnDeleteCar);
-
             BindingContext = this;
-
             LoadCars();
         }
 
         private async void LoadCars()
         {
-            var cars = await _getCarAPI.GetCar();
+            var cars = await _getCarAPI.GetCar(UsersStorage.CurrentUser.Phone);
             if (cars != null)
             {
                 foreach (var car in cars)
@@ -49,14 +47,13 @@ namespace AutoStop
 
         private async void OnEditCar(Car car)
         {
-            //Add methods for editing cars in BD
+            await Navigation.PushAsync(new CarUpdatePage(car));
         }
 
         private void OnDeleteCar(Car car)
         {
             Cars.Remove(car);
             DeleteCarAsync(car);
-            LoadCars();
         }
 
         private async void OnAddCarButtonClicked(object sender, EventArgs e)

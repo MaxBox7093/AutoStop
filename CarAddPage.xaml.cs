@@ -12,7 +12,9 @@ public partial class CarAddPage : ContentPage
     public CarAddPage()
 	{
 		InitializeComponent();
-	}
+        _registrationCarAPI = new RegistrationCarAPI();
+
+    }
 
     private async void OnAddCarButtonClicked(object sender, EventArgs e)
     {

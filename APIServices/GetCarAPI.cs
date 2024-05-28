@@ -10,12 +10,12 @@ namespace AutoStop.APIServices
 {
     internal class GetCarAPI : ApiService
     {
-        public async Task<List<Car>> GetCar()
+        public async Task<List<Car>> GetCar(string ph)
         {
             try
             {
                 // Отправляем GET-запрос
-                HttpResponseMessage response = await _httpClient.GetAsync("car");
+                HttpResponseMessage response = await _httpClient.GetAsync($"car?phone={ph}");
 
                 // Логирование статуса ответа
                 Console.WriteLine("Response status code: " + response.StatusCode);

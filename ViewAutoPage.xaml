@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AutoStop"
              x:Class="AutoStop.ViewAutoPage"
-             Title="ViewAutoPage">
+             Title="ViewAutoPage"
+              BackgroundColor="#F0F0F0">
 
     <Grid RowDefinitions="Auto, *, Auto, Auto">
         <!-- Основной контент -->
@@ -17,13 +18,18 @@
             <CollectionView ItemsSource="{Binding Cars}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
+                        <Border BackgroundColor="White" Stroke="Black">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
                             <StackLayout Orientation="Horizontal" Padding="10">
                                 <Label Text="{Binding CarModel}" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
-                                <Button Text="Редактировать" Command="{Binding Path=BindingContext.EditCarCommand, Source={x:Reference CarsPage}}" CommandParameter="{Binding .}" />
-                                <Button Text="Удалить" Command="{Binding Path=BindingContext.DeleteCarCommand, Source={x:Reference CarsPage}}" CommandParameter="{Binding .}" />
+                                <Label Text="{Binding Color}" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding GRZ}" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                                <Button Text="Редактировать" Command="{Binding Source={RelativeSource AncestorType={x:Type local:ViewAutoPage}}, Path=BindingContext.EditCarCommand}" CommandParameter="{Binding .}" />
+                                <Button Text="Удалить" Command="{Binding Source={RelativeSource AncestorType={x:Type local:ViewAutoPage}}, Path=BindingContext.DeleteCarCommand}" CommandParameter="{Binding .}" />
                             </StackLayout>
-                        </ViewCell>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

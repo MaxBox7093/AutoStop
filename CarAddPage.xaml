@@ -2,14 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AutoStop.CarAddPage"
-             Title="CarAddPage">
-    <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
-            <Label Text="Введите ГосРегЗнак вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
-            <Entry x:Name="GRZ" Placeholder="ГосРегЗнак" FontSize="18" Margin="0,10,0,10" />
-            <Label Text="Введите модель вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
-            <Entry x:Name="CarMod" Placeholder="Модель машины" FontSize="18" Margin="0,10,0,10" />
-            <Label Text="Введите цвет вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
-            <Entry x:Name="CarCol" Placeholder="Цвет машины" FontSize="18" Margin="0,10,0,10" />
-            <Button Text="Добавить" BackgroundColor="Orange" TextColor="White" Clicked="OnAddCarButtonClicked" />
-        </StackLayout>
+             Title="CarAddPage"
+             BackgroundColor="White">
+        <StackLayout Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+            <Border BackgroundColor="#F0F0F0" Stroke="Black">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+                <StackLayout Padding="20">
+                    <Label Text="Введите ГосРегЗнак вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
+                    <Entry x:Name="GRZ" Placeholder="ГосРегЗнак" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" />
+                    <Label Text="Введите модель вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
+                    <Entry x:Name="CarMod" Placeholder="Модель машины" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" />
+                    <Label Text="Введите цвет вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
+                    <Entry x:Name="CarCol" Placeholder="Цвет машины" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" />
+                    <Button Text="Добавить" BackgroundColor="Orange" TextColor="White" Clicked="OnAddCarButtonClicked" />
+                </StackLayout>
+            </Border>
+    </StackLayout>
 </ContentPage>
