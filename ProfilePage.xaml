@@ -25,7 +25,7 @@
                         <Label Text="+7(999)999-99-99" FontSize="14" HorizontalOptions="Center" x:Name="userphone"/>
                         <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="10">
                             <Button Text="Сменить фото" BackgroundColor="Orange" TextColor="White"/>
-                            <Button Text="Редактировать профиль" BackgroundColor="Orange" TextColor="White"/>
+                            <Button Text="Редактировать профиль" BackgroundColor="Orange" TextColor="White" Clicked="OnUserEditClicked"/>
                             <Button Text="Просмотр авто" BackgroundColor="Orange" TextColor="White" Clicked="ViewAutoClicked"/>
                         </StackLayout>
                     </StackLayout>

@@ -20,5 +20,6 @@
     <ShellContent Route="RegistrationCarPage" ContentTemplate="{DataTemplate local:RegistrationCarPage}" />
     <ShellContent Route="CarAddPage" ContentTemplate="{DataTemplate local:CarAddPage}" />
     <ShellContent Route="CarUpdatePage" ContentTemplate="{DataTemplate local:CarUpdatePage}" />
+    <ShellContent Route="UserEditPage" ContentTemplate="{DataTemplate local:UserEditPage}" />
     <ShellContent Route="ViewAutoPage" ContentTemplate="{DataTemplate local:ViewAutoPage}" />
 </Shell>
