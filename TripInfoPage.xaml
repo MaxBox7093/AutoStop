@@ -6,57 +6,52 @@
              Title="TripInfoPage"
              BackgroundColor="#F0F0F0">
 
-    <Grid RowDefinitions="*, Auto">
+    <Grid RowDefinitions="Auto, *, Auto">
+        <!-- Логотип и название -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="10" Grid.Row="0">
+            <Image Source="logo1.png" WidthRequest="50" HeightRequest="50"/>
+            <Label Text="AUTOSTOP" FontSize="24" TextColor="Orange" VerticalOptions="Center"/>
+        </StackLayout>
+        
         <!-- Основной контент -->
-        <ScrollView Grid.Row="0">
+        <ScrollView Grid.Row="1">
             <StackLayout>
-                <!-- Логотип и название -->
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="10">
-                    <Image Source="logo1.png" WidthRequest="50" HeightRequest="50"/>
-                    <Label Text="AUTOSTOP" FontSize="24" TextColor="Orange" VerticalOptions="Center"/>
-                </StackLayout>
 
                 <!-- Информация о поездке -->
                 <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="10" BackgroundColor="White">
                     <StackLayout HorizontalOptions="Center">
                         <Image Source="usericon.png" WidthRequest="100" HeightRequest="100"/>
-                        <Label Text="{Binding FullName}" FontSize="18" HorizontalOptions="Center"/>
-                        <Label Text="{Binding BirthDate}" FontSize="14" HorizontalOptions="Center"/>
-                        <Label Text="{Binding PhoneNumber}" FontSize="14" HorizontalOptions="Center"/>
+                        <Label x:Name="DriverFullName" Text="{Binding FullName}" FontSize="18" HorizontalOptions="Center"/>
+                        <Label x:Name="DriverPhone" Text="{Binding PhoneNumber}" FontSize="14" HorizontalOptions="Center"/>
                         <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="10">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Label Text="Откуда:" FontSize="14"/>
-                                <Label Text="{Binding FromLocation}" FontSize="14"/>
+                                <Label x:Name="From" Text="{Binding FromLocation}" FontSize="14"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Label Text="Куда:" FontSize="14"/>
-                                <Label Text="{Binding ToLocation}" FontSize="14"/>
+                                <Label x:Name="To" Text="{Binding ToLocation}" FontSize="14"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Label Text="Дата:" FontSize="14"/>
-                                <Label Text="{Binding TripDate}" FontSize="14"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                <Label Text="Время:" FontSize="14"/>
-                                <Label Text="{Binding TripTime}" FontSize="14"/>
+                                <Label x:Name="TripDate" Text="{Binding TripDate}" FontSize="14"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Label Text="Кол-во попутчиков:" FontSize="14"/>
-                                <Label Text="{Binding PassengerCount}" FontSize="14"/>
+                                <Label x:Name="PassCount" Text="{Binding PassengerCount}" FontSize="14"/>
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
 
                 <StackLayout Padding="10">
-                    <Label Text="Комментарий водителя:" FontSize="18" HorizontalOptions="Start" TextColor="Black"/>
+                    <Label Text="Примечание:" FontSize="18" HorizontalOptions="Start" TextColor="Black"/>
                     <ScrollView>
                         <StackLayout>
-                            <!-- Пример комментария -->
                             <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White">
                                 <StackLayout Orientation="Horizontal">
                                     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                                        <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                        <Label x:Name="Comment" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                                                FontSize="14"
                                                LineBreakMode="WordWrap"
                                                HorizontalOptions="FillAndExpand"
@@ -64,21 +59,40 @@
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>
-                            <!-- Добавьте больше комментариев аналогично -->
                         </StackLayout>
                     </ScrollView>
                 </StackLayout>
 
                 <!-- Кнопки действий -->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="10">
-                    <Button Text="Позвонить" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center"/>
-                    <Button Text="Забронировать" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center"/>
-                    <Button Text="Написать" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center"/>
+                    <StackLayout>
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding IsDriver}" Value="true">
+                                <Setter Property="IsVisible" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding IsDriver}" Value="false">
+                                <Setter Property="IsVisible" Value="True" />
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                        <Button Text="Забронировать" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center"/>
+                        <Button Text="Написать" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding IsDriver}" Value="true">
+                                <Setter Property="IsVisible" Value="True" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding IsDriver}" Value="false">
+                                <Setter Property="IsVisible" Value="False" />
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                        <Button Text="Удалить" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center"/>
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
 
         <!-- Нижнее навигационное меню -->
-        <local:Footer Grid.Row="1" />
+        <local:Footer Grid.Row="2"/>
     </Grid>
 </ContentPage>
