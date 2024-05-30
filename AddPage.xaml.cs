@@ -2,12 +2,13 @@ using AutoStop.APIServices;
 using AutoStop.Models;
 using AutoStop.Storages;
 using AutoStopAPI.Models;
+using System.Collections.ObjectModel;
 
 namespace AutoStop;
 
 public partial class AddPage : ContentPage
 {
-    public List<Car> Cars { get; set; }
+    public ObservableCollection<Car> Cars { get; set; }
     public Car SelectedCar { get; set; }
     private readonly GetCarAPI _getCarAPI;
     private readonly AddTravelAPI _addTravelAPI;
@@ -17,7 +18,7 @@ public partial class AddPage : ContentPage
         InitializeComponent();
         _getCarAPI = new GetCarAPI();
         _addTravelAPI = new AddTravelAPI();
-        Cars = new List<Car>();
+        Cars = new ObservableCollection<Car>();
         LoadCars();
         BindingContext = this;
     }
@@ -31,7 +32,8 @@ public partial class AddPage : ContentPage
             dateTime = TravelDate.Date,
             comment = Comment.Text,
             phoneDriver = UsersStorage.CurrentUser.Phone,
-            carGRZ = SelectedCar?.GRZ
+            carGRZ = SelectedCar?.GRZ,
+            numberPassenger = int.Parse(PassCountLabel.Text)
         };
 
         TravelsAdd(travel);
@@ -65,4 +67,9 @@ public partial class AddPage : ContentPage
             await DisplayAlert("Ошибка", "Не удалось создать поездку", "OK");
         }
     }
+
+    private void OnPassCountValueChanged(object sender, ValueChangedEventArgs e)
+{
+    PassCountLabel.Text = e.NewValue.ToString();
+}
 }

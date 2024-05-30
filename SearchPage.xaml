@@ -13,43 +13,49 @@
         </StackLayout>
         <!-- Основной контент -->
         <ScrollView Grid.Row="1">
-            <StackLayout>
-                <!-- Location Inputs -->
-                <Label Text="Откуда" FontAttributes="Bold"/>
-                <Entry Placeholder="Введите место отправления"/>
+            <Border BackgroundColor="White" Stroke="Black" Margin="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+                <StackLayout Padding="20">
+                    <!-- Location Inputs -->
+                    <Label Text="Откуда" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Entry x:Name="From" Placeholder="Введите место отправления"/>
 
-                <Label Text="Куда" FontAttributes="Bold"/>
-                <Entry Placeholder="Введите пункт назначения"/>
+                    <Label Text="Куда" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Entry x:Name="To" Placeholder="Введите пункт назначения"/>
 
-                <!-- Date Picker -->
-                <Label Text="Дата и время поездки" FontAttributes="Bold"/>
-                <DatePicker Date="{Binding Date}" Format="dd MMMM yyyy"/>
+                    <!-- Date Picker -->
+                    <Label Text="Дата поездки" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <DatePicker x:Name="TripDate" Date="{Binding Date}" Format="dd MMMM yyyy" HorizontalOptions="Center"/>
 
-                <!-- Number of Passengers -->
-                <Label Text="Кол-во попутчиков" FontAttributes="Bold"/>
-                <Stepper Value="{Binding PassengerCount}" Minimum="1" Maximum="10"/>
+                    <!-- Number of Passengers -->
+                    <Label Text="Кол-во попутчиков" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label x:Name="PassCountLabel" Text="1" HorizontalOptions="Center"/>
+                    <Stepper x:Name="PassCount" Minimum="1" Maximum="150" ValueChanged="OnPassCountValueChanged" HorizontalOptions="Center"/>
 
-                <!-- Search Button -->
-                <Button Text="Найти" BackgroundColor="Orange" TextColor="White" Clicked="OnFindClicked"/>
+                    <!-- Search Button -->
+                    <Button Text="Найти" BackgroundColor="Orange" TextColor="White" Clicked="OnFindClicked" HorizontalOptions="Center"/>
 
-                <!-- Search Results List -->
-                <CollectionView ItemsSource="{Binding SearchResults}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White">
-                                <Grid Padding="10" ColumnSpacing="10">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="3*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding FullName}" Grid.Column="0" FontAttributes="Bold"/>
-                                    <Label Text="{Binding PassengerCount}" Grid.Column="1" HorizontalOptions="End"/>
-                                </Grid>
-                            </Frame>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </StackLayout>
+                    <!-- Search Results List -->
+                    <CollectionView ItemsSource="{Binding SearchResults}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White">
+                                    <Grid Padding="10" ColumnSpacing="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="3*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding FullName}" Grid.Column="0" FontAttributes="Bold"/>
+                                        <Label Text="{Binding PassengerCount}" Grid.Column="1" HorizontalOptions="End"/>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Border>
         </ScrollView>
         <!-- Нижнее навигационное меню -->
         <local:Footer Grid.Row="2" />

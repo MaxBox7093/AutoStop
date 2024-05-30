@@ -26,16 +26,17 @@
                     <Entry x:Name="To" Placeholder="Введите пункт назначения"/>
 
                     <!-- Date and Time Picker -->
-                    <Label Text="Дата и время поездки" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label Text="Дата поездки" FontAttributes="Bold" HorizontalOptions="Center"/>
                     <DatePicker x:Name="TravelDate" Format="dd MMMM yyyy" HorizontalOptions="Center"/>
 
                     <!-- Number of Passengers -->
                     <Label Text="Кол-во попутчиков" FontAttributes="Bold" HorizontalOptions="Center"/>
-                    <Stepper x:Name="PassCount" Minimum="1" Maximum="150" HorizontalOptions="Center"/>
+                    <Label x:Name="PassCountLabel" Text="1" HorizontalOptions="Center"/>
+                    <Stepper x:Name="PassCount" Minimum="1" Maximum="150" ValueChanged="OnPassCountValueChanged" HorizontalOptions="Center"/>
 
                     <!-- Car Selection -->
                     <Label Text="Выбор автомобиля" FontAttributes="Bold" HorizontalOptions="Center"/>
-                    <Picker x:Name="TravelCar" Title="Выберите автомобиль" ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}" HorizontalOptions="Center"/>
+                    <Picker x:Name="TravelCar" Title="Выберите автомобиль" ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}" ItemDisplayBinding="{Binding CarModel}" HorizontalOptions="Center"/>
 
                     <!-- Comments -->
                     <Label Text="Примечание" FontAttributes="Bold" HorizontalOptions="Center"/>
