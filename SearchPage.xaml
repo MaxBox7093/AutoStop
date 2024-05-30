@@ -27,7 +27,7 @@
 
                     <!-- Date Picker -->
                     <Label Text="Дата поездки" FontAttributes="Bold" HorizontalOptions="Center"/>
-                    <DatePicker x:Name="TripDate" Date="{Binding Date}" Format="dd MMMM yyyy" HorizontalOptions="Center"/>
+                    <DatePicker x:Name="TripDate" Format="dd MMMM yyyy" HorizontalOptions="Center"/>
 
                     <!-- Number of Passengers -->
                     <Label Text="Кол-во попутчиков" FontAttributes="Bold" HorizontalOptions="Center"/>
@@ -38,22 +38,32 @@
                     <Button Text="Найти" BackgroundColor="Orange" TextColor="White" Clicked="OnFindClicked" HorizontalOptions="Center"/>
 
                     <!-- Search Results List -->
-                    <CollectionView ItemsSource="{Binding SearchResults}">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White">
-                                    <Grid Padding="10" ColumnSpacing="10">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="3*"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Text="{Binding FullName}" Grid.Column="0" FontAttributes="Bold"/>
-                                        <Label Text="{Binding PassengerCount}" Grid.Column="1" HorizontalOptions="End"/>
-                                    </Grid>
-                                </Frame>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                    <Border BackgroundColor="White" Stroke="Black" Margin="20" Padding="20">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <CollectionView ItemsSource="{Binding Travels}" SelectionChanged="OnTravelSelected" SelectionMode="Single">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White">
+                                        <Grid Padding="10" ColumnSpacing="10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding startCity}" Grid.Column="0" FontAttributes="Bold"/>
+                                            <Label Text="{Binding endCity}" Grid.Column="1" FontAttributes="Bold"/>
+                                            <Label Text="{Binding numberPassenger}" Grid.Column="2" HorizontalOptions="End"/>
+                                            <Label Text="{Binding dateTime}" Grid.Column="3" HorizontalOptions="End"/>
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    </Border>
                 </StackLayout>
             </Border>
         </ScrollView>

@@ -1,20 +1,59 @@
+using AutoStop.APIServices;
+using AutoStop.Models;
+using System.Collections.ObjectModel;
+
 namespace AutoStop;
 
 public partial class SearchPage : ContentPage
 {
-	public SearchPage()
-	{
-		InitializeComponent();
+    public ObservableCollection<Travel> Travels { get; set; }
+    private readonly searchTravelAPI _searchAPI;
+
+    public SearchPage()
+    {
+        InitializeComponent();
+        Travels = new ObservableCollection<Travel>();
+        _searchAPI = new searchTravelAPI();
+        BindingContext = this;
     }
 
     private async void OnFindClicked(object sender, EventArgs e)
     {
-        //await Navigation.PushAsync(new TripInfoPage());
+        PassengerSearch ps = new PassengerSearch
+        {
+            startCity = From.Text,
+            endCity = To.Text,
+            numberPassenger = int.Parse(PassCountLabel.Text),
+            date = DateOnly.FromDateTime(TripDate.Date)
+        };
+
+        var trips = await _searchAPI.GetTravels(ps);
+        if (trips != null)
+        {
+            Travels.Clear();
+            foreach (var trip in trips)
+            {
+                Travels.Add(trip);
+            }
+        }
+        else
+        {
+            await DisplayAlert("Ошибка", "Не удалось найти поездки, удовлетворяющие критериям", "OK");
+        }
     }
 
-    private async void OnTripTapped(object sender, EventArgs e)
-    { 
-        //await Navigation.PushAsync(new TripInfoPage()); 
+    private async void OnTravelSelected(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedTravel = e.CurrentSelection.FirstOrDefault() as Travel;
+        if (selectedTravel != null)
+        {
+            await Navigation.PushAsync(new TripInfoPage(selectedTravel));
+        }
     }
 
+
+    private void OnPassCountValueChanged(object sender, ValueChangedEventArgs e)
+    {
+        PassCountLabel.Text = e.NewValue.ToString();
+    }
 }

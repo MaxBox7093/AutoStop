@@ -21,24 +21,24 @@
                 <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="10" BackgroundColor="White">
                     <StackLayout HorizontalOptions="Center">
                         <Image Source="usericon.png" WidthRequest="100" HeightRequest="100"/>
-                        <Label x:Name="DriverFullName" Text="{Binding FullName}" FontSize="18" HorizontalOptions="Center"/>
-                        <Label x:Name="DriverPhone" Text="{Binding PhoneNumber}" FontSize="14" HorizontalOptions="Center"/>
+                        <Label x:Name="DriverFullName" FontSize="18" HorizontalOptions="Center"/>
+                        <Label x:Name="DriverPhone" FontSize="14" HorizontalOptions="Center"/>
                         <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="10">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Label Text="Откуда:" FontSize="14"/>
-                                <Label x:Name="From" Text="{Binding FromLocation}" FontSize="14"/>
+                                <Label x:Name="From" FontSize="14"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Label Text="Куда:" FontSize="14"/>
-                                <Label x:Name="To" Text="{Binding ToLocation}" FontSize="14"/>
+                                <Label x:Name="To" FontSize="14"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Label Text="Дата:" FontSize="14"/>
-                                <Label x:Name="TripDate" Text="{Binding TripDate}" FontSize="14"/>
+                                <Label x:Name="TripDate" FontSize="14"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Label Text="Кол-во попутчиков:" FontSize="14"/>
-                                <Label x:Name="PassCount" Text="{Binding PassengerCount}" FontSize="14"/>
+                                <Label x:Name="PassCount" FontSize="14"/>
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>

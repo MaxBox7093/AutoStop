@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using AutoStop.Services;
-using AutoStopAPI.Models;
+using AutoStop.Models;
 
 namespace AutoStop.APIServices
 {

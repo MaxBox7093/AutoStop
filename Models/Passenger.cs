@@ -1,4 +1,4 @@
-﻿namespace AutoStopAPI.Models
+﻿namespace AutoStop.Models
 {
     public class Passenger
     {

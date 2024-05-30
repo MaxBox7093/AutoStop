@@ -1,7 +1,6 @@
 using AutoStop.APIServices;
 using AutoStop.Models;
 using AutoStop.Storages;
-using AutoStopAPI.Models;
 using System.Collections.ObjectModel;
 
 namespace AutoStop;
@@ -69,7 +68,7 @@ public partial class AddPage : ContentPage
     }
 
     private void OnPassCountValueChanged(object sender, ValueChangedEventArgs e)
-{
-    PassCountLabel.Text = e.NewValue.ToString();
-}
+    {
+        PassCountLabel.Text = e.NewValue.ToString();
+    }
 }
