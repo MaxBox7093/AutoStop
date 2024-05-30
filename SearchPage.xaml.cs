@@ -9,12 +9,12 @@ public partial class SearchPage : ContentPage
 
     private async void OnFindClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new TripInfoPage());
+        //await Navigation.PushAsync(new TripInfoPage());
     }
 
     private async void OnTripTapped(object sender, EventArgs e)
     { 
-        await Navigation.PushAsync(new TripInfoPage()); 
+        //await Navigation.PushAsync(new TripInfoPage()); 
     }
 
 }
