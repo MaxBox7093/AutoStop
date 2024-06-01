@@ -26,5 +26,12 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Мы используем вашу фототеку для выбора изображения профиля</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Мы используем вашу камеру для создания изображения профиля</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>Мы используем доступ к вашим документам для сохранения изображений профиля</string>
+
 </dict>
 </plist>
