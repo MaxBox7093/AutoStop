@@ -50,4 +50,32 @@ public partial class ProfilePage : ContentPage
 
         return success;
     }
+
+
+    private async void OnChangePhotoClicked(object sender, EventArgs e)
+    {
+        await PickAndShowPhotoAsync();
+    }
+
+    private async Task PickAndShowPhotoAsync()
+    {
+        try
+        {
+            var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+            {
+                Title = "Выберите фотографию"
+            });
+
+            if (result != null)
+            {
+                var stream = await result.OpenReadAsync();
+                UserImage.Source = ImageSource.FromStream(() => stream);
+            }
+        }
+        catch (Exception ex)
+        {
+            // Обработка исключений
+            await DisplayAlert("Ошибка", "Не удалось загрузить фотографию: " + ex.Message, "OK");
+        }
+    }
 }

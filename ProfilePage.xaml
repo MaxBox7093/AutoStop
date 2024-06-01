@@ -19,12 +19,12 @@
                 <!-- Профиль пользователя -->
                 <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="10" BackgroundColor="White" >
                     <StackLayout HorizontalOptions="Center">
-                        <Image Source="usericon.png" WidthRequest="100" HeightRequest="100"/>
+                        <Image x:Name="UserImage" Source="usericon.png" WidthRequest="100" HeightRequest="100"/>
                         <Label Text="Имя Фамилия" FontSize="18" HorizontalOptions="Center" x:Name="username"/>
                         <Label Text="19.02.2004" FontSize="14" HorizontalOptions="Center" x:Name="userbirthdate"/>
                         <Label Text="+7(999)999-99-99" FontSize="14" HorizontalOptions="Center" x:Name="userphone"/>
                         <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="10">
-                            <Button Text="Сменить фото" BackgroundColor="Orange" TextColor="White"/>
+                            <Button Text="Сменить фото" BackgroundColor="Orange" TextColor="White" Clicked="OnChangePhotoClicked"/>
                             <Button Text="Редактировать профиль" BackgroundColor="Orange" TextColor="White" Clicked="OnUserEditClicked"/>
                             <Button Text="Просмотр авто" BackgroundColor="Orange" TextColor="White" Clicked="ViewAutoClicked"/>
                         </StackLayout>
