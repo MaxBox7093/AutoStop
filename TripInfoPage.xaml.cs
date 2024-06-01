@@ -9,8 +9,12 @@ namespace AutoStop;
 
 public partial class TripInfoPage : ContentPage
 {
+    int passc = 0;
+    Travel travtemp;
     GetNameByPhoneNumAPI _nameAPI;
-    public TripInfoPage(Travel travel)
+    TravelDeleteAPI _deleteAPI;
+    TravelAddPassAPI _addAPI;
+    public TripInfoPage(Travel travel, int pc)
     {
         _nameAPI = new GetNameByPhoneNumAPI();
         InitializeComponent();
@@ -31,9 +35,12 @@ public partial class TripInfoPage : ContentPage
         TripDate.Text = DateOnly.FromDateTime((DateTime)travel.dateTime).ToString();
         PassCount.Text = travel.Passengers?.Count().ToString() ?? "0";
         Comment.Text = travel.comment;
-
+        travtemp = travel;
+        _deleteAPI = new TravelDeleteAPI();
+        _addAPI = new TravelAddPassAPI();
         // Изменяем вызов асинхронного метода
         LoadDriverNameAsync(travel.phoneDriver);
+        passc = pc;
     }
 
     private async void LoadDriverNameAsync(string ph)
@@ -51,6 +58,55 @@ public partial class TripInfoPage : ContentPage
         else
         {
             return res;
+        }
+    }
+
+    private async void OnDeleteClicked(object sender, EventArgs e)
+    {
+        deleteTripAsync(travtemp);
+        await Navigation.PopAsync();
+    }
+
+    private void AddPassengerClicked(object sender, EventArgs e)
+    {
+        Passenger pass = new Passenger
+        {
+            PhonePassenger = UsersStorage.CurrentUser.Phone,
+            IdTravel = travtemp.idTravel,
+            NumberPassenger = passc
+        };
+
+        addPassToTripAsync(pass);
+    }
+
+    private void ToChatsClicked(object sender, EventArgs e)
+    {
+        
+    }
+
+    private async void deleteTripAsync(Travel travel)
+    {
+        bool success = await _deleteAPI.Delete(travel);
+        if (success)
+        {
+            await DisplayAlert("Успех", "Поездка успешно удалена", "OK");
+        }
+        else
+        {
+            await DisplayAlert("Ошибка", "Не удалось удалить поездку", "OK");
+        }
+    }
+
+    private async void addPassToTripAsync(Passenger passenger)
+    {
+        bool success = await _addAPI.Add(passenger);
+        if (success)
+        {
+            await DisplayAlert("Успех", "Поездка успешно забронирована", "OK");
+        }
+        else
+        {
+            await DisplayAlert("Ошибка", "Не удалось забронировать поездку", "OK");
         }
     }
 }

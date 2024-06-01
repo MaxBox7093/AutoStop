@@ -13,49 +13,86 @@
         <!-- Основной контент -->
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Spacing="10" Padding="10">
-                <!-- Segment Control for Active and Inactive rides -->
-            <HorizontalStackLayout>
-                <Button Text="Активные" />
-                <Button Text="Неактивные" />
-            </HorizontalStackLayout>
+                <!-- Segment Control for rides -->
+                <VerticalStackLayout x:Name="RoleSelector" Margin="20">
+                    <Label Text="Роль" FontSize="Medium" FontAttributes="Bold"/>
+                    <HorizontalStackLayout>
+                        <Button x:Name="PassButton" Text="Пассажир" BackgroundColor="Orange" TextColor="White" Clicked="PassButton_Clicked"/>
+                        <Button x:Name="DriverButton" Text="Водитель" BackgroundColor="#2196F3" TextColor="LightBlue" Clicked="DriverButton_Clicked"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
 
-            <!-- Active Rides List -->
-            <Frame CornerRadius="10" BorderColor="Orange" Padding="5">
-                <StackLayout>
-                    <Label Text="Откуда - Куда" FontSize="Medium" FontAttributes="Bold"/>
-                    <!-- Example of an Active Ride -->
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="04.02.2022  04:20  " Grid.Column="0"/>
-                        <Label Text="  +7999-999-99-99  " Grid.Column="1"/>
-                        <Label Text="попутчиков: 8" Grid.Column="2"/>
-                    </Grid>
-                </StackLayout>
-            </Frame>
+                <!-- Active Rides List -->
+                <Border BackgroundColor="White" Stroke="Orange" Padding="10">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <StackLayout  VerticalOptions="FillAndExpand" Padding="5">
+                        <Label Text="Активные поездки" FontSize="Medium" FontAttributes="Bold"/>
+                        <CollectionView x:Name="ActiveRidesList" ItemsSource="{Binding Travels, Mode=TwoWay}" VerticalOptions="FillAndExpand">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BackgroundColor="White" Stroke="Black" Padding="10" Margin="10">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10" />
+                                        </Border.StrokeShape>
+                                        <Grid Padding="20">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding dateTime, StringFormat='{0:dd.MM.yyyy}'}" Grid.Column="0"/>
+                                            <Label Text="{Binding phoneDriver}" Grid.Column="1"/>
+                                            <Label Text="{Binding startCity}" Grid.Column="2"/>
+                                            <Label Text="{Binding endCity}" Grid.Column="3"/>
+                                            <Label Text="{Binding numberPassenger, StringFormat='попутчиков: {0}'}" Grid.Column="4"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Border>
 
-            <!-- Inactive Rides List -->
-            <Frame CornerRadius="10" BorderColor="Gray" Padding="5">
-                <StackLayout>
-                        <Label Text="Откуда - Куда" FontSize="Medium" FontAttributes="Bold"/>
-                    <!-- Example of an Inactive Ride -->
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="01.01.2018  04:20  " Grid.Column="0"/>
-                        <Label Text="  +7999-999-99-99  " Grid.Column="1"/>
-                        <Label Text="попутчиков: 4" Grid.Column="2"/>
-                    </Grid>
-                </StackLayout>
-            </Frame>
-        </VerticalStackLayout>
-    </ScrollView>
+                <!-- Inactive Rides List -->
+                <Border BackgroundColor="White" Stroke="LightGray" Padding="10">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <StackLayout  VerticalOptions="FillAndExpand" Padding="5">
+                        <Label Text="Неактивные поездки" FontSize="Medium" FontAttributes="Bold"/>
+                        <CollectionView x:Name="InactiveRidesList" ItemsSource="{Binding InactiveTravels, Mode=TwoWay}" VerticalOptions="FillAndExpand">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BackgroundColor="WhiteSmoke" Stroke="Black" Padding="10" Margin="10">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10" />
+                                        </Border.StrokeShape>
+                                        <Grid Padding="20">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding dateTime, StringFormat='{0:dd.MM.yyyy}'}" Grid.Column="0"/>
+                                            <Label Text="{Binding phoneDriver}" Grid.Column="1"/>
+                                            <Label Text="{Binding startCity}" Grid.Column="2"/>
+                                            <Label Text="{Binding endCity}" Grid.Column="3"/>
+                                            <Label Text="{Binding numberPassenger, StringFormat='попутчиков: {0}'}" Grid.Column="4"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
         <!-- Нижнее навигационное меню -->
         <local:Footer Grid.Row="2" />
     </Grid>

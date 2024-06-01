@@ -47,7 +47,7 @@ public partial class SearchPage : ContentPage
         var selectedTravel = e.CurrentSelection.FirstOrDefault() as Travel;
         if (selectedTravel != null)
         {
-            await Navigation.PushAsync(new TripInfoPage(selectedTravel));
+            await Navigation.PushAsync(new TripInfoPage(selectedTravel, int.Parse(PassCountLabel.Text)));
         }
     }
 
