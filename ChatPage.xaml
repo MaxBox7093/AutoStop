@@ -21,16 +21,8 @@
 
         <!-- Сообщения -->
         <ScrollView Grid.Row="2" Padding="10">
-            <StackLayout>
-                 <!--Пример сообщений--> 
-                <Label Text="22:44" FontSize="12" HorizontalOptions="Center"/>
-                <Frame CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White" HorizontalOptions="Start">
-                    <Label Text="Sample text, sample text, sample text, sample text, sample text, sample text, sample text, sample text..." FontSize="14"/>
-                </Frame>
-                <Frame CornerRadius="10" Padding="10" Margin="5" BackgroundColor="AntiqueWhite" HorizontalOptions="End">
-                    <Label Text="Sample text, sample text, sample text, sample text, sample text, sample text, sample text, sample text..." FontSize="14"/>
-                </Frame>
-                 <!--Добавьте больше сообщений аналогично--> 
+            <StackLayout x:Name="ChatMessagesStackLayout">
+                <!--Сообщения будут добавляться динамически здесь-->
             </StackLayout>
         </ScrollView>
 

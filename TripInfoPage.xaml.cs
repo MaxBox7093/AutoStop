@@ -14,6 +14,10 @@ public partial class TripInfoPage : ContentPage
     GetNameByPhoneNumAPI _nameAPI;
     TravelDeleteAPI _deleteAPI;
     TravelAddPassAPI _addAPI;
+    CreateChatAPI _createChatAPI;
+    DeletePassFromTravelAPI _deletePassFromTravelAPI;
+    bool alreadyhere = false;
+
     public TripInfoPage(Travel travel, int pc)
     {
         _nameAPI = new GetNameByPhoneNumAPI();
@@ -38,9 +42,31 @@ public partial class TripInfoPage : ContentPage
         travtemp = travel;
         _deleteAPI = new TravelDeleteAPI();
         _addAPI = new TravelAddPassAPI();
-        // Изменяем вызов асинхронного метода
+        _createChatAPI = new CreateChatAPI();
+        _deletePassFromTravelAPI = new DeletePassFromTravelAPI();
         LoadDriverNameAsync(travel.phoneDriver);
         passc = pc;
+
+        if (!((bool)travel.isActive))
+        {
+            toBook.IsVisible = false;
+            toChats.IsVisible = false;
+            DriversDeleteBtn.IsVisible = false;
+        }
+
+        if (travel.Passengers != null)
+        {
+            foreach (var tempass in travel.Passengers)
+            {
+                if (tempass.PhonePassenger == UsersStorage.CurrentUser.Phone)
+                {
+                    alreadyhere = true;
+                    BtnChng(alreadyhere);
+                    break;
+                }
+            }
+        }
+
     }
 
     private async void LoadDriverNameAsync(string ph)
@@ -67,21 +93,57 @@ public partial class TripInfoPage : ContentPage
         await Navigation.PopAsync();
     }
 
-    private void AddPassengerClicked(object sender, EventArgs e)
+    private void BtnChng(bool bl)
     {
-        Passenger pass = new Passenger
+        if (bl) 
         {
-            PhonePassenger = UsersStorage.CurrentUser.Phone,
-            IdTravel = travtemp.idTravel,
-            NumberPassenger = passc
-        };
-
-        addPassToTripAsync(pass);
+            toBook.Text = "Отменить бронирование";
+            toBook.BackgroundColor = Colors.WhiteSmoke;
+            toBook.BorderColor = Colors.Orange;
+        } else
+        {
+            toBook.Text = "Забронировать";
+            toBook.BackgroundColor = Colors.Orange;
+            toBook.BorderColor = Colors.Transparent;
+        }
     }
 
-    private void ToChatsClicked(object sender, EventArgs e)
+    private void AddPassengerClicked(object sender, EventArgs e)
     {
-        
+        if (!alreadyhere)
+        {
+            Passenger pass = new Passenger
+            {
+                PhonePassenger = UsersStorage.CurrentUser.Phone,
+                IdTravel = travtemp.idTravel,
+                NumberPassenger = passc
+            };
+
+            addPassToTripAsync(pass);
+            alreadyhere = true;
+            BtnChng(alreadyhere);
+        } else
+        {
+            Passenger pass = new Passenger
+            {
+                PhonePassenger = UsersStorage.CurrentUser.Phone,
+                IdTravel = travtemp.idTravel
+            };
+            deletePassFromTripAsync(pass);
+            alreadyhere = false;
+            BtnChng(alreadyhere);
+        }
+    }
+
+    private async void ToChatsClicked(object sender, EventArgs e)
+    {
+        Chat chat = new Chat
+        {
+            phoneUser1 = travtemp.phoneDriver,
+            phoneUser2 = UsersStorage.CurrentUser.Phone
+        };
+        CreateChatAsync(chat);
+        await Navigation.PushAsync(new ChatsPage());
     }
 
     private async void deleteTripAsync(Travel travel)
@@ -101,6 +163,32 @@ public partial class TripInfoPage : ContentPage
     {
         bool success = await _addAPI.Add(passenger);
         if (success)
+        {
+            await DisplayAlert("Успех", "Поездка успешно забронирована", "OK");
+        }
+        else
+        {
+            await DisplayAlert("Ошибка", "Не удалось забронировать поездку", "OK");
+        }
+    }
+
+    private async void deletePassFromTripAsync(Passenger passenger)
+    {
+        bool success = await _deletePassFromTravelAPI.DeletePass(passenger);
+        if (success)
+        {
+            await DisplayAlert("Успех", "Поездка успешно забронирована", "OK");
+        }
+        else
+        {
+            await DisplayAlert("Ошибка", "Не удалось забронировать поездку", "OK");
+        }
+    }
+
+    private async void CreateChatAsync(Chat chat)
+    {
+        Chat success = await _createChatAPI.CreateChat(chat);
+        if (success != null)
         {
             await DisplayAlert("Успех", "Поездка успешно забронирована", "OK");
         }
