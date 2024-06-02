@@ -17,14 +17,18 @@
         <ScrollView Grid.Row="1">
             <StackLayout Padding="10">
                 <!-- Пример одного чата -->
-                <CollectionView ItemsSource="{Binding Chats}">
+                <CollectionView ItemsSource="{Binding Chats}" SelectionChanged="OnChatSelected" SelectionMode="Single">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border BackgroundColor="White" Stroke="Black">
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="10" />
                                 </Border.StrokeShape>
-                                <Grid ColumnDefinitions="Auto, *">
+                                <Grid ColumnDefinitions="Auto, Auto">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
                                     <Label Text="{Binding phoneUser1}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="0"/>
                                     <Label Text="{Binding dateCreate}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="1" Grid.Row="0"/>
                                     <Label Text="{Binding messages[0].content}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
@@ -33,6 +37,7 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
+
                 <!-- Добавьте больше чатов аналогично -->
             </StackLayout>
         </ScrollView>

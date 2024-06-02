@@ -39,7 +39,7 @@ namespace AutoStop
         private async void OnAddButtonClicked(object sender, EventArgs e)
         {
             bool tmp = await OnDriverChecked(UsersStorage.CurrentUser.Phone);
-            var currentPage = Shell.Current.CurrentPage; // Получение текущей страницы
+            var currentPage = Shell.Current.CurrentPage;
             if (tmp)
             {
                 await Shell.Current.GoToAsync("//AddPage");

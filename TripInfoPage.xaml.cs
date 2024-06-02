@@ -99,10 +99,12 @@ public partial class TripInfoPage : ContentPage
         {
             toBook.Text = "Отменить бронирование";
             toBook.BackgroundColor = Colors.WhiteSmoke;
+            toBook.TextColor = Colors.Orange;
             toBook.BorderColor = Colors.Orange;
         } else
         {
             toBook.Text = "Забронировать";
+            toBook.TextColor = Colors.WhiteSmoke;
             toBook.BackgroundColor = Colors.Orange;
             toBook.BorderColor = Colors.Transparent;
         }

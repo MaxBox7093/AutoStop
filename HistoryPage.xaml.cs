@@ -94,4 +94,14 @@ public partial class HistoryPage : ContentPage
             await DisplayAlert("Ошибка", "Поездки не найдены", "OK");
         }
     }
+
+    private async void OnRideSelected(object sender, SelectionChangedEventArgs e)
+    {      
+            var selectedTravel = e.CurrentSelection.FirstOrDefault() as Travel;
+            int passengerCount = selectedTravel.Passengers != null ? selectedTravel.Passengers.Count : 0;
+            if (selectedTravel != null)
+            {
+                await Navigation.PushAsync(new TripInfoPage(selectedTravel, passengerCount));
+            }
+    }
 }

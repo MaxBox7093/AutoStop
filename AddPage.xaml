@@ -28,6 +28,7 @@
                     <!-- Date and Time Picker -->
                     <Label Text="Дата поездки" FontAttributes="Bold" HorizontalOptions="Center"/>
                     <DatePicker x:Name="TravelDate" Format="dd MMMM yyyy" HorizontalOptions="Center"/>
+                    <TimePicker x:Name="TravelTime" Format="HH:mm" HorizontalOptions="Center"/>
 
                     <!-- Number of Passengers -->
                     <Label Text="Кол-во попутчиков" FontAttributes="Bold" HorizontalOptions="Center"/>

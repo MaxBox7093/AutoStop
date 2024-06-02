@@ -28,7 +28,7 @@ public partial class AddPage : ContentPage
         {
             startCity = From.Text,
             endCity = To.Text,
-            dateTime = TravelDate.Date,
+            dateTime = new DateTime(TravelDate.Date.Year, TravelDate.Date.Month, TravelDate.Date.Day, TravelTime.Time.Hours, TravelTime.Time.Minutes, TravelTime.Time.Seconds),
             comment = Comment.Text,
             phoneDriver = UsersStorage.CurrentUser.Phone,
             carGRZ = SelectedCar?.GRZ,
