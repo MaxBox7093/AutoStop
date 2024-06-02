@@ -14,17 +14,11 @@ namespace AutoStop.APIServices
         {
             try
             {
-                // Преобразуем объект PassengerSearch в строку JSON
-                string jsonPs = JsonConvert.SerializeObject(ps);
-
-                // Создаем контент для запроса
-                var content = new StringContent(jsonPs, System.Text.Encoding.UTF8, "application/json");
+                // Формируем строку запроса
+                string queryString = $"searchTravel?startCity={Uri.EscapeDataString(ps.startCity)}&endCity={Uri.EscapeDataString(ps.endCity)}&numberPassenger={ps.numberPassenger}&date={ps.date:yyyy-MM-dd}";
 
                 // Создаем запрос
-                var request = new HttpRequestMessage(HttpMethod.Get, "searchTravel")
-                {
-                    Content = content
-                };
+                var request = new HttpRequestMessage(HttpMethod.Get, queryString);
 
                 // Отправляем запрос
                 HttpResponseMessage response = await _httpClient.SendAsync(request);

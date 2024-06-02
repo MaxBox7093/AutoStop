@@ -19,12 +19,15 @@ public partial class SearchPage : ContentPage
 
     private async void OnFindClicked(object sender, EventArgs e)
     {
+        var tripDate = TripDate.Date;
+        var dateOnly = DateOnly.FromDateTime(tripDate);
+
         PassengerSearch ps = new PassengerSearch
         {
             startCity = From.Text,
             endCity = To.Text,
             numberPassenger = int.Parse(PassCountLabel.Text),
-            date = DateOnly.FromDateTime(TripDate.Date)
+            date = dateOnly
         };
 
         var trips = await _searchAPI.GetTravels(ps);
