@@ -74,8 +74,8 @@
                                 <Setter Property="IsVisible" Value="True" />
                             </DataTrigger>
                         </StackLayout.Triggers>
-                        <Button Text="Забронировать" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center" Clicked="AddPassengerClicked"/>
-                        <Button Text="Написать" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center" Clicked="ToChatsClicked"/>
+                        <Button x:Name="toBook" Text="Забронировать" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center" Clicked="AddPassengerClicked"/>
+                        <Button x:Name="toChats" Text="Написать" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center" Clicked="ToChatsClicked"/>
                     </StackLayout>
                     <StackLayout>
                         <StackLayout.Triggers>
@@ -86,7 +86,7 @@
                                 <Setter Property="IsVisible" Value="False" />
                             </DataTrigger>
                         </StackLayout.Triggers>
-                        <Button Text="Удалить" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center" Clicked="OnDeleteClicked"/>
+                        <Button x:Name="DriversDeleteBtn" Text="Удалить" BackgroundColor="Orange" TextColor="White" HorizontalOptions="Center" Clicked="OnDeleteClicked"/>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
