@@ -18,7 +18,7 @@
                 <!-- Профиль пользователя -->
                 <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="10" BackgroundColor="White">
                     <StackLayout HorizontalOptions="Center">
-                        <Frame WidthRequest="100" HeightRequest="100" CornerRadius="20" HasShadow="True" BorderColor="Transparent">
+                        <Frame WidthRequest="100" HeightRequest="100" CornerRadius="50" Padding="0" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="True">
                             <Image x:Name="UserImage" Source="usericon.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
                         </Frame>
                         <Label Text="Имя Фамилия" FontSize="18" HorizontalOptions="Center" x:Name="username"/>
@@ -39,7 +39,7 @@
                             <!-- Пример одного отзыва -->
                             <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White">
                                 <StackLayout Orientation="Horizontal">
-                                    <Frame WidthRequest="50" HeightRequest="50" BorderColor="Orange" CornerRadius="25" Padding="5" HasShadow="True">
+                                    <Frame WidthRequest="50" HeightRequest="50" BorderColor="Transparent" CornerRadius="25" Padding="0" BackgroundColor="Transparent" HasShadow="True">
                                         <Image Source="usericon.png" Aspect="AspectFill" WidthRequest="50" HeightRequest="50"/>
                                     </Frame>
                                     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
