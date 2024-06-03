@@ -96,13 +96,19 @@ public partial class HistoryPage : ContentPage
     }
 
     private async void OnRideSelected(object sender, SelectionChangedEventArgs e)
-    {      
+    {
+        if (sender is CollectionView collectionView)
+        {
             var selectedTravel = e.CurrentSelection.FirstOrDefault() as Travel;
-            int passengerCount = selectedTravel.Passengers != null ? selectedTravel.Passengers.Count : 0;
+            int passengerCount = selectedTravel?.Passengers?.Count ?? 0;
+
             if (selectedTravel != null)
             {
                 await Navigation.PushAsync(new TripInfoPage(selectedTravel, passengerCount));
-            ((CollectionView)sender).SelectedItem = null;
+            }
+
+            // —брос выбора
+            collectionView.SelectedItem = null;
         }
     }
 }

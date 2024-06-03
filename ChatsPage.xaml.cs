@@ -44,11 +44,16 @@ namespace AutoStop
         [Obsolete]
         private async void OnChatSelected(object sender, SelectionChangedEventArgs e)
         {
-            var chat = e.CurrentSelection.FirstOrDefault() as Chat;
-            if (chat != null)
+            if (sender is CollectionView collectionView)
             {
-                await Navigation.PushAsync(new ChatPage(chat));
-                ((CollectionView)sender).SelectedItem = null;
+                var chat = e.CurrentSelection.FirstOrDefault() as Chat;
+                if (chat != null)
+                {
+                    await Navigation.PushAsync(new ChatPage(chat));
+                }
+
+                // —брос выбора
+                collectionView.SelectedItem = null;
             }
         }
     }

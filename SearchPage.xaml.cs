@@ -47,11 +47,16 @@ public partial class SearchPage : ContentPage
 
     private async void OnTravelSelected(object sender, SelectionChangedEventArgs e)
     {
-        var selectedTravel = e.CurrentSelection.FirstOrDefault() as Travel;
-        if (selectedTravel != null)
+        if (sender is CollectionView collectionView)
         {
-            await Navigation.PushAsync(new TripInfoPage(selectedTravel, int.Parse(PassCountLabel.Text)));
-            ((CollectionView)sender).SelectedItem = null;
+            var selectedTravel = e.CurrentSelection.FirstOrDefault() as Travel;
+            if (selectedTravel != null)
+            {
+                await Navigation.PushAsync(new TripInfoPage(selectedTravel, int.Parse(PassCountLabel.Text)));
+            }
+
+            // —брос выбора
+            collectionView.SelectedItem = null;
         }
     }
 
