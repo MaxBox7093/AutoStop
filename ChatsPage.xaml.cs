@@ -37,7 +37,7 @@ namespace AutoStop
             }
             else
             {
-                await DisplayAlert("Ошибка", "Не удалось загрузить автомобили", "OK");
+                await DisplayAlert("Ошибка", "Не удалось загрузить чаты", "OK");
             }
         }
 
@@ -48,6 +48,7 @@ namespace AutoStop
             if (chat != null)
             {
                 await Navigation.PushAsync(new ChatPage(chat));
+                ((CollectionView)sender).SelectedItem = null;
             }
         }
     }

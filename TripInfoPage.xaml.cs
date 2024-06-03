@@ -179,11 +179,11 @@ public partial class TripInfoPage : ContentPage
         bool success = await _deletePassFromTravelAPI.DeletePass(passenger);
         if (success)
         {
-            await DisplayAlert("Успех", "Поездка успешно забронирована", "OK");
+            await DisplayAlert("Успех", "Бронирование успешно отменено", "OK");
         }
         else
         {
-            await DisplayAlert("Ошибка", "Не удалось забронировать поездку", "OK");
+            await DisplayAlert("Ошибка", "Не удалось отменить бронирование", "OK");
         }
     }
 
@@ -192,11 +192,11 @@ public partial class TripInfoPage : ContentPage
         Chat success = await _createChatAPI.CreateChat(chat);
         if (success != null)
         {
-            await DisplayAlert("Успех", "Поездка успешно забронирована", "OK");
+            await DisplayAlert("Успех", "Вы добавлены в чат с водителем", "OK");
         }
         else
         {
-            await DisplayAlert("Ошибка", "Не удалось забронировать поездку", "OK");
+            await DisplayAlert("Ошибка", "Не удалось создать чат", "OK");
         }
     }
 }

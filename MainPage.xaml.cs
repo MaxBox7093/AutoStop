@@ -1,6 +1,7 @@
 ﻿using AutoStop.APIServices;
 using AutoStop.Models;
 using AutoStop.Services;
+using AutoStop.Storages;
 using Microsoft.Maui.Controls;
 using System;
 using System.Threading.Tasks;
@@ -29,6 +30,7 @@ namespace AutoStop
             if (user != null)
             {
                 await DisplayAlert("Уведомление", $"Добро пожаловать, {user.Name} {user.LastName}", "OK");
+                FooterStateStorage.State = "ProfilePage";
                 await Navigation.PushAsync(new ProfilePage(user));
             }
             else

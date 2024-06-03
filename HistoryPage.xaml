@@ -38,16 +38,16 @@
                                         </Border.StrokeShape>
                                         <Grid Padding="20">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="{Binding dateTime, StringFormat='{0:dd.MM.yyyy}'}" Grid.Column="0"/>
+                                            <Label Text="{Binding dateTime}" Grid.Column="0"/>
                                             <Label Text="{Binding phoneDriver}" Grid.Column="1"/>
-                                            <Label Text="{Binding startCity}" Grid.Column="2"/>
-                                            <Label Text="{Binding endCity}" Grid.Column="3"/>
+                                            <Label Text="{Binding startCity}" Grid.Column="2" FontAttributes="Bold"/>
+                                            <Label Text="{Binding endCity}" Grid.Column="3"  FontAttributes="Bold"/>
                                             <Label Text="{Binding numberPassenger, StringFormat='попутчиков: {0}'}" Grid.Column="4"/>
                                         </Grid>
                                     </Border>

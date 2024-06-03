@@ -102,6 +102,7 @@ public partial class HistoryPage : ContentPage
             if (selectedTravel != null)
             {
                 await Navigation.PushAsync(new TripInfoPage(selectedTravel, passengerCount));
-            }
+            ((CollectionView)sender).SelectedItem = null;
+        }
     }
 }

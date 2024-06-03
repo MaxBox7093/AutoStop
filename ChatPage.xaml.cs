@@ -4,7 +4,8 @@ using AutoStop.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Timers; // Явно указываем использование System.Timers
+using System.Timers;
+using AutoStop.Storages; // Явно указываем использование System.Timers
 
 namespace AutoStop
 {
@@ -12,6 +13,7 @@ namespace AutoStop
     {
         GetMessagesAPI _getMessAPI;
         SendMessageAPI _sendMessAPI;
+        GetNameByPhoneNumAPI _getNameAPI;
         Chat chtmp;
         System.Timers.Timer _timer; // Явно указываем использование System.Timers.Timer
 
@@ -22,11 +24,14 @@ namespace AutoStop
             chtmp = chat;
             _getMessAPI = new GetMessagesAPI();
             _sendMessAPI = new SendMessageAPI();
+            _getNameAPI = new GetNameByPhoneNumAPI();
 
             // Запуск таймера для обновления сообщений
-            _timer = new System.Timers.Timer(20000); // каждые 20 секунд
+            _timer = new System.Timers.Timer(2000); // каждые 2 секунды
             _timer.Elapsed += async (sender, e) => await UpdateMessages();
             _timer.Start();
+
+            AddUsr2Name(chat);
 
             // Загрузка сообщений при инициализации страницы
             Task.Run(async () => await LoadMessages());
@@ -39,7 +44,7 @@ namespace AutoStop
             Device.BeginInvokeOnMainThread(() =>
             {
                 ChatMessagesStackLayout.Children.Clear();
-                foreach (var message in messages)
+                foreach (var message in messages.OrderBy(m => m.sendDate))
                 {
                     AddMessageToUI(message);
                 }
@@ -52,8 +57,17 @@ namespace AutoStop
             await LoadMessages();
         }
 
-        private void AddMessageToUI(Message message)
+        private async void AddUsr2Name(Chat chat)
         {
+            NameUsr2.Text = await _getNameAPI.GetName(chat.phoneUser1);
+            PhoneUsr2.Text = chat.phoneUser1;
+        }
+
+        private async void AddMessageToUI(Message message)
+        {
+            string senderName = message.senderPhone == chtmp.phoneUser1 ? await _getNameAPI.GetName(chtmp.phoneUser1) : "Вы";
+            string sendDateString = message.sendDate.HasValue ? message.sendDate.Value.ToString("HH:mm") : "";
+
             var frame = new Frame
             {
                 CornerRadius = 10,
@@ -61,14 +75,64 @@ namespace AutoStop
                 Margin = new Thickness(5),
                 BackgroundColor = message.senderPhone == chtmp.phoneUser1 ? Colors.White : Colors.AntiqueWhite,
                 HorizontalOptions = message.senderPhone == chtmp.phoneUser1 ? LayoutOptions.Start : LayoutOptions.End,
-                Content = new Label
+                WidthRequest = 100,
+                MinimumWidthRequest = 80,
+                MaximumWidthRequest = 200,
+                Content = new StackLayout
                 {
-                    Text = message.content,
-                    FontSize = 14
+                    Children =
+                    {
+                        new Label
+                        {
+                            Text = $"{senderName}",
+                            FontSize = 14,
+                            TextColor = Colors.Black,
+                            FontAttributes = FontAttributes.Bold
+                        },
+                        new Label
+                        {
+                            Text = $"({sendDateString})",
+                            FontSize = 10,
+                            TextColor = Colors.Black,
+                            FontAttributes = FontAttributes.None
+                        },
+                        new Label
+                        {
+                            Text = message.content,
+                            FontSize = 14
+                        }
+                    }
                 }
             };
 
             ChatMessagesStackLayout.Children.Add(frame);
+        }
+
+        [Obsolete]
+        private void Send_Clicked(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(messUI.Text))
+            {
+                Message ms = new Message
+                {
+                    refChat = chtmp.idChat,
+                    senderPhone = UsersStorage.CurrentUser.Phone,
+                    content = messUI.Text
+                };
+                SendMess(ms);
+            }
+        }
+
+        [Obsolete]
+        private async void SendMess(Message mess)
+        {
+            bool success = await _sendMessAPI.Send(mess);
+            if (!success)
+            {
+                await DisplayAlert("Ошибка", "Не удалось отправить сообщение", "OK");
+            }
+
+            await UpdateMessages();
         }
     }
 }
