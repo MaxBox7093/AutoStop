@@ -20,7 +20,7 @@
         </StackLayout>
 
         <!-- Сообщения -->
-        <ScrollView Grid.Row="2" Padding="10">
+        <ScrollView x:Name="scvw" Grid.Row="2" Padding="10">
             <StackLayout x:Name="ChatMessagesStackLayout">
                 <!--Сообщения будут добавляться динамически здесь-->
             </StackLayout>
