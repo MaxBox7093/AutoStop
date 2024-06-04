@@ -57,6 +57,7 @@ namespace AutoStop
             PhoneUsr2.Text = chat.phoneUser1;
         }
 
+        [Obsolete]
         private async void DisplayMessages(IEnumerable<Message> messages)
         {
             var sortedMessages = messages.OrderBy(m => m.sendDate).ToList();
@@ -106,6 +107,7 @@ namespace AutoStop
                 new Label
                 {
                     Text = message.content,
+                    TextColor = Colors.Black,
                     FontSize = 14
                 }
             }

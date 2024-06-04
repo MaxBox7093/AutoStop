@@ -2,7 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AutoStop"
              x:Class="AutoStop.HistoryPage"
-             Title="История поездок">
+             Title="История поездок"
+              BackgroundColor="#F0F0F0">
 
     <Grid RowDefinitions="Auto, *, Auto">
         <!-- Логотип и название -->
@@ -15,7 +16,7 @@
             <VerticalStackLayout Spacing="10" Padding="10">
                 <!-- Segment Control for rides -->
                 <VerticalStackLayout x:Name="RoleSelector" Margin="20">
-                    <Label Text="Роль" FontSize="Medium" FontAttributes="Bold"/>
+                    <Label Text="Роль" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
                     <HorizontalStackLayout>
                         <Button x:Name="PassButton" Text="Пассажир" BackgroundColor="Orange" TextColor="White" Clicked="PassButton_Clicked"/>
                         <Button x:Name="DriverButton" Text="Водитель" BackgroundColor="#2196F3" TextColor="LightBlue" Clicked="DriverButton_Clicked"/>
@@ -28,7 +29,7 @@
                         <RoundRectangle CornerRadius="10" />
                     </Border.StrokeShape>
                     <StackLayout  VerticalOptions="FillAndExpand" Padding="5">
-                        <Label Text="Активные поездки" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="Активные поездки" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
                         <CollectionView x:Name="ActiveRidesList" ItemsSource="{Binding Travels, Mode=TwoWay}" SelectionChanged="OnRideSelected" SelectionMode="Single" VerticalOptions="FillAndExpand">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
@@ -44,11 +45,11 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="{Binding dateTime}" Grid.Column="0"/>
-                                            <Label Text="{Binding phoneDriver}" Grid.Column="1"/>
-                                            <Label Text="{Binding startCity}" Grid.Column="2" FontAttributes="Bold"/>
-                                            <Label Text="{Binding endCity}" Grid.Column="3"  FontAttributes="Bold"/>
-                                            <Label Text="{Binding numberPassenger, StringFormat='попутчиков: {0}'}" Grid.Column="4"/>
+                                            <Label Text="{Binding dateTime}" Grid.Column="0" TextColor="Black"/>
+                                            <Label Text="{Binding phoneDriver}" Grid.Column="1" TextColor="Black"/>
+                                            <Label Text="{Binding startCity}" Grid.Column="2" FontAttributes="Bold" TextColor="Black"/>
+                                            <Label Text="{Binding endCity}" Grid.Column="3"  FontAttributes="Bold" TextColor="Black"/>
+                                            <Label Text="{Binding numberPassenger, StringFormat='попутчиков: {0}'}" Grid.Column="4" TextColor="Black"/>
                                         </Grid>
                                     </Border>
                                 </DataTemplate>
@@ -63,7 +64,7 @@
                         <RoundRectangle CornerRadius="10" />
                     </Border.StrokeShape>
                     <StackLayout  VerticalOptions="FillAndExpand" Padding="5">
-                        <Label Text="Неактивные поездки" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="Неактивные поездки" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
                         <CollectionView x:Name="InactiveRidesList" ItemsSource="{Binding InactiveTravels, Mode=TwoWay}" SelectionChanged="OnRideSelected" SelectionMode="Single" VerticalOptions="FillAndExpand">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
@@ -79,11 +80,11 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="{Binding dateTime, StringFormat='{0:dd.MM.yyyy}'}" Grid.Column="0"/>
-                                            <Label Text="{Binding phoneDriver}" Grid.Column="1"/>
-                                            <Label Text="{Binding startCity}" Grid.Column="2"/>
-                                            <Label Text="{Binding endCity}" Grid.Column="3"/>
-                                            <Label Text="{Binding numberPassenger, StringFormat='попутчиков: {0}'}" Grid.Column="4"/>
+                                            <Label Text="{Binding dateTime, StringFormat='{0:dd.MM.yyyy}'}" Grid.Column="0" TextColor="Black"/>
+                                            <Label Text="{Binding phoneDriver}" Grid.Column="1" TextColor="Black"/>
+                                            <Label Text="{Binding startCity}" Grid.Column="2" TextColor="Black"/>
+                                            <Label Text="{Binding endCity}" Grid.Column="3" TextColor="Black"/>
+                                            <Label Text="{Binding numberPassenger, StringFormat='попутчиков: {0}'}" Grid.Column="4" TextColor="Black"/>
                                         </Grid>
                                     </Border>
                                 </DataTemplate>

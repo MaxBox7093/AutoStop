@@ -21,24 +21,24 @@
                 <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="10" BackgroundColor="White">
                     <StackLayout HorizontalOptions="Center">
                         <Image Source="usericon.png" WidthRequest="100" HeightRequest="100"/>
-                        <Label x:Name="DriverFullName" FontSize="18" HorizontalOptions="Center"/>
-                        <Label x:Name="DriverPhone" FontSize="14" HorizontalOptions="Center"/>
+                        <Label x:Name="DriverFullName" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
+                        <Label x:Name="DriverPhone" FontSize="14" HorizontalOptions="Center" TextColor="Black"/>
                         <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="10">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                <Label Text="Откуда:" FontSize="14"/>
-                                <Label x:Name="From" FontSize="14"/>
+                                <Label Text="Откуда:" FontSize="14" TextColor="Black"/>
+                                <Label x:Name="From" FontSize="14" TextColor="Black"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                <Label Text="Куда:" FontSize="14"/>
-                                <Label x:Name="To" FontSize="14"/>
+                                <Label Text="Куда:" FontSize="14" TextColor="Black"/>
+                                <Label x:Name="To" FontSize="14" TextColor="Black"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                <Label Text="Дата:" FontSize="14"/>
-                                <Label x:Name="TripDate" FontSize="14"/>
+                                <Label Text="Дата:" FontSize="14" TextColor="Black"/>
+                                <Label x:Name="TripDate" FontSize="14" TextColor="Black"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                <Label Text="Кол-во попутчиков:" FontSize="14"/>
-                                <Label x:Name="PassCount" FontSize="14"/>
+                                <Label Text="Кол-во попутчиков:" FontSize="14" TextColor="Black"/>
+                                <Label x:Name="PassCount" FontSize="14" TextColor="Black"/>
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>
@@ -55,7 +55,7 @@
                                                FontSize="14"
                                                LineBreakMode="WordWrap"
                                                HorizontalOptions="FillAndExpand"
-                                               VerticalOptions="StartAndExpand"/>
+                                               VerticalOptions="StartAndExpand" TextColor="Black"/>
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>

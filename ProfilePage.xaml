@@ -21,9 +21,9 @@
                         <Frame WidthRequest="100" HeightRequest="100" CornerRadius="50" Padding="0" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="True">
                             <Image x:Name="UserImage" Source="usericon.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
                         </Frame>
-                        <Label Text="Имя Фамилия" FontSize="18" HorizontalOptions="Center" x:Name="username"/>
-                        <Label Text="19.02.2004" FontSize="14" HorizontalOptions="Center" x:Name="userbirthdate"/>
-                        <Label Text="+7(999)999-99-99" FontSize="14" HorizontalOptions="Center" x:Name="userphone"/>
+                        <Label Text="Имя Фамилия" FontSize="18" HorizontalOptions="Center" x:Name="username" TextColor="Black"/>
+                        <Label Text="19.02.2004" FontSize="14" HorizontalOptions="Center" x:Name="userbirthdate" TextColor="Black"/>
+                        <Label Text="+7(999)999-99-99" FontSize="14" HorizontalOptions="Center" x:Name="userphone" TextColor="Black"/>
                         <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="10">
                             <Button Text="Сменить фото" BackgroundColor="Orange" TextColor="White" Clicked="OnChangePhotoClicked"/>
                             <Button Text="Редактировать профиль" BackgroundColor="Orange" TextColor="White" Clicked="OnUserEditClicked"/>
@@ -43,12 +43,12 @@
                                         <Image Source="usericon.png" Aspect="AspectFill" WidthRequest="50" HeightRequest="50"/>
                                     </Frame>
                                     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                                        <Label Text="Имя Фамилия" FontSize="14"/>
+                                        <Label Text="Имя Фамилия" FontSize="14" TextColor="Black"/>
                                         <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." 
                                                FontSize="12"
                                                LineBreakMode="WordWrap"
                                                HorizontalOptions="FillAndExpand"
-                                               VerticalOptions="StartAndExpand"/>
+                                               VerticalOptions="StartAndExpand" TextColor="Black"/>
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>

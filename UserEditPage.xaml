@@ -8,11 +8,11 @@
     <ScrollView>
             <StackLayout Padding="20" VerticalOptions="CenterAndExpand" BackgroundColor="White">
                 <Label Text="Редактировать профиль" FontSize="28" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" />
-                <Label Text="Имя" FontSize="18" HorizontalOptions="Center" />
+                <Label Text="Имя" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
                 <Entry x:Name="newName" Placeholder="Имя" FontSize="18" BackgroundColor="#F0F0F0" TextColor="Black" Margin="0,10,0,10" />
-                <Label Text="Фамилия" FontSize="18" HorizontalOptions="Center" />
-                <Entry x:Name="newSecondName" Placeholder="Фамилия" FontSize="18" BackgroundColor="#F0F0F0" Margin="0,10,0,10" />
-                <Label Text="Дата рождения" FontSize="18" HorizontalOptions="Center" />
+                <Label Text="Фамилия" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
+                <Entry x:Name="newSecondName" Placeholder="Фамилия" FontSize="18" BackgroundColor="#F0F0F0" TextColor="Black" Margin="0,10,0,10" />
+                <Label Text="Дата рождения" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
                 <DatePicker x:Name="newDate" Date="{Binding Date}" Format="dd MMMM yyyy" FontSize="18" BackgroundColor="#F0F0F0" TextColor="Black" Margin="0,10,0,10" />
                 <Border BackgroundColor="#F0F0F0" Stroke="Black">
                     <Border.StrokeShape>
@@ -20,12 +20,12 @@
                     </Border.StrokeShape>
                     <StackLayout Padding="20">
                         <Label Text="Редактировать пароль" FontSize="24" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" />
-                        <Label Text="Введите текущий пароль" FontSize="18" HorizontalOptions="Center" />
-                        <Entry x:Name="CurrentPassword" Placeholder="Текущий пароль" FontSize="18" BackgroundColor="White" IsPassword="True" Margin="0,10,0,10" />
-                        <Label Text="Введите новый пароль" FontSize="18" HorizontalOptions="Center" />
-                    <Entry x:Name="NewPassword" Placeholder="Новый пароль" FontSize="18" BackgroundColor="White" IsPassword="True" Margin="0,10,0,10" />
-                        <Label Text="Введите новый пароль ещё раз" FontSize="18" HorizontalOptions="Center" />
-                    <Entry x:Name="DoubleNewPassword" Placeholder="Новый пароль" FontSize="18" BackgroundColor="White" IsPassword="True" Margin="0,10,0,10" />
+                        <Label Text="Введите текущий пароль" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
+                    <Entry x:Name="CurrentPassword" Placeholder="Текущий пароль" FontSize="18" BackgroundColor="White" TextColor="Black" IsPassword="True" Margin="0,10,0,10" />
+                    <Label Text="Введите новый пароль" FontSize="18" HorizontalOptions="Center" TextColor="Black" />
+                    <Entry x:Name="NewPassword" Placeholder="Новый пароль" FontSize="18" BackgroundColor="White" TextColor="Black" IsPassword="True" Margin="0,10,0,10" />
+                    <Label Text="Введите новый пароль ещё раз" FontSize="18" HorizontalOptions="Center" TextColor="Black" />
+                    <Entry x:Name="DoubleNewPassword" Placeholder="Новый пароль" FontSize="18" BackgroundColor="White" TextColor="Black" IsPassword="True" Margin="0,10,0,10" />
                     </StackLayout>
                 </Border>
                 <Button Text="Сохранить" BackgroundColor="Orange" TextColor="White" Clicked="OnAcceptButtonClicked" />

@@ -19,19 +19,19 @@
                 </Border.StrokeShape>
                 <StackLayout Padding="20">
                     <!-- Location Inputs -->
-                    <Label Text="Откуда" FontAttributes="Bold" HorizontalOptions="Center"/>
-                    <Entry x:Name="From" Placeholder="Введите место отправления"/>
+                    <Label Text="Откуда" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
+                    <Entry x:Name="From" Placeholder="Введите место отправления" TextColor="Black"/>
 
-                    <Label Text="Куда" FontAttributes="Bold" HorizontalOptions="Center"/>
-                    <Entry x:Name="To" Placeholder="Введите пункт назначения"/>
+                    <Label Text="Куда" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
+                    <Entry x:Name="To" Placeholder="Введите пункт назначения" TextColor="Black"/>
 
                     <!-- Date Picker -->
-                    <Label Text="Дата поездки" FontAttributes="Bold" HorizontalOptions="Center"/>
-                    <DatePicker x:Name="TripDate" Format="dd MMMM yyyy" HorizontalOptions="Center"/>
+                    <Label Text="Дата поездки" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
+                    <DatePicker x:Name="TripDate" Format="dd MMMM yyyy" HorizontalOptions="Center" TextColor="Black"/>
 
                     <!-- Number of Passengers -->
-                    <Label Text="Кол-во попутчиков" FontAttributes="Bold" HorizontalOptions="Center"/>
-                    <Label x:Name="PassCountLabel" Text="1" HorizontalOptions="Center"/>
+                    <Label Text="Кол-во попутчиков" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
+                    <Label x:Name="PassCountLabel" Text="1" HorizontalOptions="Center" TextColor="Black"/>
                     <Stepper x:Name="PassCount" Minimum="1" Maximum="150" ValueChanged="OnPassCountValueChanged" HorizontalOptions="Center"/>
 
                     <!-- Search Button -->
@@ -53,10 +53,10 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="{Binding startCity}" Grid.Column="0" FontAttributes="Bold"/>
-                                            <Label Text="{Binding endCity}" Grid.Column="1" FontAttributes="Bold"/>
-                                            <Label Text="{Binding numberPassenger}" Grid.Column="2" HorizontalOptions="End"/>
-                                            <Label Text="{Binding dateTime}" Grid.Column="3" HorizontalOptions="End"/>
+                                            <Label Text="{Binding startCity}" Grid.Column="0" FontAttributes="Bold" TextColor="Black"/>
+                                            <Label Text="{Binding endCity}" Grid.Column="1" FontAttributes="Bold" TextColor="Black"/>
+                                            <Label Text="{Binding numberPassenger}" Grid.Column="2" HorizontalOptions="End" TextColor="Black"/>
+                                            <Label Text="{Binding dateTime}" Grid.Column="3" HorizontalOptions="End" TextColor="Black"/>
                                         </Grid>
                                     </Frame>
                                 </DataTemplate>

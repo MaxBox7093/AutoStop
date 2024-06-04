@@ -10,13 +10,13 @@
                 <RoundRectangle CornerRadius="10" />
             </Border.StrokeShape>
             <StackLayout Padding="20">
-                <Label Text="Введите ГосРегЗнак вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
-                <Entry x:Name="newGRZ" Placeholder="ГосРегЗнак" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" />
-                <Label Text="Введите модель вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
-                <Entry x:Name="newCarMod" Placeholder="Модель машины" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" />
-                <Label Text="Введите цвет вашего автомобиля" FontSize="18" HorizontalOptions="Center" />
-                <Entry x:Name="newCarCol" Placeholder="Цвет машины" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" />
-                <Button Text="Обновить" BackgroundColor="Orange" TextColor="White" Clicked="OnUpdCarButtonClicked" />
+                <Label Text="Введите ГосРегЗнак вашего автомобиля" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
+                <Entry x:Name="newGRZ" Placeholder="ГосРегЗнак" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" TextColor="Black"/>
+                <Label Text="Введите модель вашего автомобиля" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
+                <Entry x:Name="newCarMod" Placeholder="Модель машины" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" TextColor="Black"/>
+                <Label Text="Введите цвет вашего автомобиля" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
+                <Entry x:Name="newCarCol" Placeholder="Цвет машины" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" TextColor="Black"/>
+                <Button Text="Обновить" BackgroundColor="Orange" TextColor="White" Clicked="OnUpdCarButtonClicked"/>
             </StackLayout>
         </Border>
     </StackLayout>
