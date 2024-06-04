@@ -29,10 +29,10 @@
         <!-- Поле для ввода сообщения и кнопка отправки -->
         <Grid Grid.Row="3" Padding="10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.2*" />
             </Grid.ColumnDefinitions>
-            <Frame BorderColor="DarkGray" CornerRadius="5" Padding="0" Grid.Column="0" MaximumHeightRequest="75" Margin="5">
+            <Frame BorderColor="DarkGray" CornerRadius="5" Padding="0" Grid.Column="0" MaximumHeightRequest="40" Margin="5">
                 <Entry x:Name="messUI" Placeholder="Напишите сообщение..." Style="{StaticResource BorderedEntryStyle}" Margin="0"/>
             </Frame>
             <Button x:Name="Send" Text="➤" FontSize="Large" Grid.Column="1" BackgroundColor="Orange" TextColor="White" MaximumHeightRequest="75" Clicked="Send_Clicked"/>

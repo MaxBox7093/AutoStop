@@ -41,20 +41,14 @@ namespace AutoStop
         private async Task LoadMessages()
         {
             var messages = await _getMessAPI.GetMessages(chtmp.idChat.Value);
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                ChatMessagesStackLayout.Children.Clear();
-                foreach (var message in messages.OrderBy(m => m.sendDate))
-                {
-                    AddMessageToUI(message);
-                }
-            });
+            DisplayMessages(messages);
         }
 
         [Obsolete]
         private async Task UpdateMessages()
         {
-            await LoadMessages();
+            var messages = await _getMessAPI.GetMessages(chtmp.idChat.Value);
+            DisplayMessages(messages);
         }
 
         private async void AddUsr2Name(Chat chat)
@@ -63,7 +57,20 @@ namespace AutoStop
             PhoneUsr2.Text = chat.phoneUser1;
         }
 
-        private async void AddMessageToUI(Message message)
+        private async void DisplayMessages(IEnumerable<Message> messages)
+        {
+            var sortedMessages = messages.OrderBy(m => m.sendDate).ToList();
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                ChatMessagesStackLayout.Children.Clear();
+                foreach (var message in sortedMessages)
+                {
+                    await AddMessageToUI(message);
+                }
+            });
+        }
+
+        private async Task AddMessageToUI(Message message)
         {
             string senderName = message.senderPhone == chtmp.phoneUser1 ? await _getNameAPI.GetName(chtmp.phoneUser1) : "Вы";
             string sendDateString = message.sendDate.HasValue ? message.sendDate.Value.ToString("HH:mm") : "";
@@ -75,38 +82,40 @@ namespace AutoStop
                 Margin = new Thickness(5),
                 BackgroundColor = message.senderPhone == chtmp.phoneUser1 ? Colors.White : Colors.AntiqueWhite,
                 HorizontalOptions = message.senderPhone == chtmp.phoneUser1 ? LayoutOptions.Start : LayoutOptions.End,
-                WidthRequest = 100,
-                MinimumWidthRequest = 80,
-                MaximumWidthRequest = 200,
+                WidthRequest = DeviceDisplay.MainDisplayInfo.Width * 0.6,
+                MinimumWidthRequest = DeviceDisplay.MainDisplayInfo.Width * 0.6,
+                MaximumWidthRequest = DeviceDisplay.MainDisplayInfo.Width * 0.6,
                 Content = new StackLayout
                 {
                     Children =
-                    {
-                        new Label
-                        {
-                            Text = $"{senderName}",
-                            FontSize = 14,
-                            TextColor = Colors.Black,
-                            FontAttributes = FontAttributes.Bold
-                        },
-                        new Label
-                        {
-                            Text = $"({sendDateString})",
-                            FontSize = 10,
-                            TextColor = Colors.Black,
-                            FontAttributes = FontAttributes.None
-                        },
-                        new Label
-                        {
-                            Text = message.content,
-                            FontSize = 14
-                        }
-                    }
+            {
+                new Label
+                {
+                    Text = $"{senderName}",
+                    FontSize = 14,
+                    TextColor = Colors.Black,
+                    FontAttributes = FontAttributes.Bold
+                },
+                new Label
+                {
+                    Text = $"({sendDateString})",
+                    FontSize = 10,
+                    TextColor = Colors.Black,
+                    FontAttributes = FontAttributes.None
+                },
+                new Label
+                {
+                    Text = message.content,
+                    FontSize = 14
+                }
+            }
                 }
             };
 
             ChatMessagesStackLayout.Children.Add(frame);
         }
+
+
 
         [Obsolete]
         private void Send_Clicked(object sender, EventArgs e)
