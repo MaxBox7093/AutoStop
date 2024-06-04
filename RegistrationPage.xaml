@@ -47,12 +47,20 @@
                     x:Name="UserBirthday"
                     FontFamily="Helvetica"
                     FontSize="22"
-                    TextColor="Black" />
+                    TextColor="Black" HorizontalOptions="Center"/>
             </Frame>
-            <Entry
-                x:Name="EntryLoginReg"
-                Placeholder="Номер телефона"
-                Style="{StaticResource EntryStyle}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="+7" TextColor="Black" BackgroundColor="Transparent" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" />
+                <Entry
+                    Grid.Column="1"
+                    x:Name="EntryLoginReg"
+                    Placeholder="Номер телефона"
+                    Style="{StaticResource EntryStyle}" />
+            </Grid>
             <Entry
                 x:Name="EntryPasswordReg"
                 Placeholder="Пароль"

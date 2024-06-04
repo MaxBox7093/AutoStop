@@ -20,28 +20,28 @@
                 <StackLayout Padding="20">
                     <!-- Location Picker -->
                     <Label Text="Откуда" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
-                    <Entry x:Name="From" Placeholder="Введите место отправления" TextColor="Black"/>
+                    <Entry x:Name="From" Placeholder="Введите место отправления" BackgroundColor="#F0F0F0" TextColor="Black"/>
 
                     <Label Text="Куда" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
-                    <Entry x:Name="To" Placeholder="Введите пункт назначения" TextColor="Black"/>
+                    <Entry x:Name="To" Placeholder="Введите пункт назначения" BackgroundColor="#F0F0F0" TextColor="Black"/>
 
                     <!-- Date and Time Picker -->
                     <Label Text="Дата поездки" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
-                    <DatePicker x:Name="TravelDate" Format="dd MMMM yyyy" HorizontalOptions="Center" TextColor="Black"/>
-                    <TimePicker x:Name="TravelTime" Format="HH:mm" HorizontalOptions="Center" TextColor="Black"/>
+                    <DatePicker x:Name="TravelDate" Format="dd MMMM yyyy" HorizontalOptions="Center" BackgroundColor="#F0F0F0" Margin="5" TextColor="Black"/>
+                    <TimePicker x:Name="TravelTime" Format="HH:mm" HorizontalOptions="Center" BackgroundColor="#F0F0F0" TextColor="Black"/>
 
                     <!-- Number of Passengers -->
                     <Label Text="Кол-во попутчиков" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
                     <Label x:Name="PassCountLabel" Text="1" HorizontalOptions="Center" TextColor="Black"/>
-                    <Stepper x:Name="PassCount" Minimum="1" Maximum="150" ValueChanged="OnPassCountValueChanged" HorizontalOptions="Center"/>
+                    <Stepper x:Name="PassCount" Minimum="1" Maximum="150" ValueChanged="OnPassCountValueChanged" BackgroundColor="#F0F0F0" HorizontalOptions="Center"/>
 
                     <!-- Car Selection -->
                     <Label Text="Выбор автомобиля" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
-                    <Picker x:Name="TravelCar" Title="Выберите автомобиль" ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}" ItemDisplayBinding="{Binding CarModel}" HorizontalOptions="Center" TextColor="Black"/>
+                    <Picker x:Name="TravelCar" Title="Выберите автомобиль" ItemsSource="{Binding Cars}" BackgroundColor="#F0F0F0" SelectedItem="{Binding SelectedCar}" ItemDisplayBinding="{Binding CarModel}" HorizontalOptions="Center" TextColor="Black"/>
 
                     <!-- Comments -->
                     <Label Text="Примечание" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
-                    <Editor x:Name="Comment" Placeholder="Добавьте комментарий..." HeightRequest="100" TextColor="Black"/>
+                    <Editor x:Name="Comment" Placeholder="Добавьте комментарий..." BackgroundColor="#F0F0F0" HeightRequest="100" TextColor="Black"/>
 
                     <!-- Submit Button -->
                     <Button Text="Создать" BackgroundColor="Orange" BorderColor="Black" BorderWidth="1" TextColor="White" Margin="20" HorizontalOptions="Center" Clicked="AddTripClicked"/>

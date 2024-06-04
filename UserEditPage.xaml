@@ -13,7 +13,7 @@
                 <Label Text="Фамилия" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
                 <Entry x:Name="newSecondName" Placeholder="Фамилия" FontSize="18" BackgroundColor="#F0F0F0" TextColor="Black" Margin="0,10,0,10" />
                 <Label Text="Дата рождения" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
-                <DatePicker x:Name="newDate" Date="{Binding Date}" Format="dd MMMM yyyy" FontSize="18" BackgroundColor="#F0F0F0" TextColor="Black" Margin="0,10,0,10" />
+                <DatePicker x:Name="newDate" Date="{Binding Date}" Format="dd MMMM yyyy" FontSize="18" BackgroundColor="#F0F0F0" HorizontalOptions="Center" TextColor="Black" Margin="0,10,0,10" />
                 <Border BackgroundColor="#F0F0F0" Stroke="Black">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="10" />

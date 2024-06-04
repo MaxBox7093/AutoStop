@@ -22,12 +22,12 @@
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
-                            <StackLayout Orientation="Horizontal" Padding="10">
+                            <StackLayout Orientation="Horizontal" Padding="10" Margin="5">
                                 <Label Text="{Binding CarModel}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
                                 <Label Text="{Binding Color}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
                                 <Label Text="{Binding GRZ}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
-                                <Button Text="Редактировать" Command="{Binding Source={RelativeSource AncestorType={x:Type local:ViewAutoPage}}, Path=BindingContext.EditCarCommand}" CommandParameter="{Binding .}"  TextColor="Black"/>
-                                <Button Text="Удалить" Command="{Binding Source={RelativeSource AncestorType={x:Type local:ViewAutoPage}}, Path=BindingContext.DeleteCarCommand}" CommandParameter="{Binding .}" TextColor="Black"/>
+                                <Button Text="Редактировать" Command="{Binding Source={RelativeSource AncestorType={x:Type local:ViewAutoPage}}, Path=BindingContext.EditCarCommand}" CommandParameter="{Binding .}" BackgroundColor="#2196F3"  TextColor="White"/>
+                                <Button Text="Удалить" Command="{Binding Source={RelativeSource AncestorType={x:Type local:ViewAutoPage}}, Path=BindingContext.DeleteCarCommand}" CommandParameter="{Binding .}" BackgroundColor="#2196F3" TextColor="White"/>
                             </StackLayout>
                         </Border>
                     </DataTemplate>

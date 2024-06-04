@@ -33,10 +33,18 @@
                 HeightRequest="220"
                 Aspect="AspectFit"
                 SemanticProperties.Description="dot net bot in a race car number eight" />
-            <Entry
-                x:Name="EntryLogin"
-                Placeholder="Номер телефона"
-                Style="{StaticResource EntryStyle}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="+7" TextColor="Black" BackgroundColor="Transparent" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" Padding="5"/>
+                <Entry
+                    Grid.Column="1"
+                    x:Name="EntryLogin"
+                    Placeholder="Номер телефона"
+                    Style="{StaticResource EntryStyle}" />
+            </Grid>
             <Entry
                 x:Name="EntryPassword"
                 Placeholder="Пароль"

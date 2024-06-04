@@ -7,7 +7,7 @@
     <VerticalStackLayout>
         <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
             <Label Text="Введите дату получения водительского удостоверения" FontSize="18" HorizontalOptions="Center" TextColor="Black"/>
-            <DatePicker x:Name="EntryCarPlate" Date="{Binding Date}" Format="dd MMMM yyyy" FontSize="18" Margin="0,10,0,10" TextColor="Black"/>
+            <DatePicker x:Name="EntryCarPlate" Date="{Binding Date}" Format="dd MMMM yyyy" FontSize="18" BackgroundColor="White" Margin="0,10,0,10" TextColor="Black"/>
             <Button Text="Добавить авто" BackgroundColor="Orange" TextColor="White" Clicked="OnAddDocButtonClicked" />
         </StackLayout>
     </VerticalStackLayout>

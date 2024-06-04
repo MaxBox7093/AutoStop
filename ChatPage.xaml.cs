@@ -54,7 +54,7 @@ namespace AutoStop
         private async void AddUsr2Name(Chat chat)
         {
             NameUsr2.Text = await _getNameAPI.GetName(chat.phoneUser1);
-            PhoneUsr2.Text = chat.phoneUser1;
+            PhoneUsr2.Text = "+7" + chat.phoneUser1;
         }
 
         [Obsolete]

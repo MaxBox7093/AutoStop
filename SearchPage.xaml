@@ -20,19 +20,19 @@
                 <StackLayout Padding="20">
                     <!-- Location Inputs -->
                     <Label Text="Откуда" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
-                    <Entry x:Name="From" Placeholder="Введите место отправления" TextColor="Black"/>
+                    <Entry x:Name="From" Placeholder="Введите место отправления" BackgroundColor="#F0F0F0" TextColor="Black"/>
 
                     <Label Text="Куда" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
-                    <Entry x:Name="To" Placeholder="Введите пункт назначения" TextColor="Black"/>
+                    <Entry x:Name="To" Placeholder="Введите пункт назначения" BackgroundColor="#F0F0F0" TextColor="Black"/>
 
                     <!-- Date Picker -->
                     <Label Text="Дата поездки" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
-                    <DatePicker x:Name="TripDate" Format="dd MMMM yyyy" HorizontalOptions="Center" TextColor="Black"/>
+                    <DatePicker x:Name="TripDate" Format="dd MMMM yyyy" HorizontalOptions="Center" BackgroundColor="#F0F0F0" TextColor="Black"/>
 
                     <!-- Number of Passengers -->
                     <Label Text="Кол-во попутчиков" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
                     <Label x:Name="PassCountLabel" Text="1" HorizontalOptions="Center" TextColor="Black"/>
-                    <Stepper x:Name="PassCount" Minimum="1" Maximum="150" ValueChanged="OnPassCountValueChanged" HorizontalOptions="Center"/>
+                    <Stepper x:Name="PassCount" Minimum="1" Maximum="150" ValueChanged="OnPassCountValueChanged" BackgroundColor="#F0F0F0" HorizontalOptions="Center"/>
 
                     <!-- Search Button -->
                     <Button Text="Найти" BackgroundColor="Orange" TextColor="White" Clicked="OnFindClicked" HorizontalOptions="Center"/>

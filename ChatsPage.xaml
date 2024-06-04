@@ -25,7 +25,7 @@
                                     <RoundRectangle CornerRadius="10" />
                                 </Border.StrokeShape>
                                 <Grid ColumnDefinitions="*, *">
-                                    <Label Text="{Binding phoneUser1}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="0" TextColor="Black"/>
+                                    <Label Text="{Binding phoneUser1, StringFormat='+7 {0}'}" Grid.Column="1" TextColor="Black"/>
                                     <Label Text="{Binding dateCreate}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="1" TextColor="Black"/>
                                 </Grid>
                             </Border>

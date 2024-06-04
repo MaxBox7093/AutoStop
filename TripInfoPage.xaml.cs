@@ -33,7 +33,7 @@ public partial class TripInfoPage : ContentPage
         }
         this.BindingContext = vm;
 
-        DriverPhone.Text = travel.phoneDriver;
+        DriverPhone.Text = "+7" + travel.phoneDriver;
         From.Text = travel.startCity;
         To.Text = travel.endCity;
         TripDate.Text = DateOnly.FromDateTime((DateTime)travel.dateTime).ToString();
